@@ -1,14 +1,10 @@
 # frozen_string_literal: true
 
-require "decidim/dev"
-require "decidim/dev/test/base_spec_helper"
-
 require "simplecov"
 SimpleCov.start "rails"
-if ENV["CODECOV"]
-  require "codecov"
-  SimpleCov.formatter = SimpleCov::Formatter::Codecov
-end
+
+require "decidim/dev"
+require "decidim/dev/test/base_spec_helper"
 
 ENV["ENGINE_ROOT"] = File.dirname(__dir__)
 
