@@ -26,4 +26,6 @@ group :development do
   gem "web-console", "~> 3.5"
 end
 
-gem "codecov", require: false, group: :test
+group :test do
+  gem "simplecov", require: false
+end
