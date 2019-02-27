@@ -39,10 +39,5 @@ task :development_app do
   seed_db("development_app")
 end
 
-# Run all tests, include all
-RSpec::Core::RakeTask.new(:spec) do |t|
-  t.verbose = false
-end
-
 # Run both by default
 task default: [:spec]
