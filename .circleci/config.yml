@@ -8,6 +8,7 @@ jobs:
       - image: decidim/decidim@sha256:348fb1faa49cfe76ba7cbeafc67ca09002cf95f0ffa7a76eefa9d5b3774e0ee9
         environment:
           RAILS_ENV: test
+          TEST_REPORT_PATH: "test/reports"
           SIMPLECOV: true
           DATABASE_USERNAME: postgres
 
@@ -49,11 +50,7 @@ jobs:
 
       - run:
           name: Run RSpec tests
-          command: bundle exec rspec
-
-      - run:
-          name: Format CodeClimate test coverage
-          command: ./cc-test-reporter format-coverage -t simplecov -o coverage/codeclimate.$CIRCLE_JOB.json coverage/.resultset.json
-
-      - store_artifacts:
-          path: /app/spec/decidim_dummy_app/tmp/screenshots
+          command: |
+            ./cc-test-reporter before-build
+            bundle exec rake
+            ./cc-test-reporter after-build --coverage-input-type simplecov --exit-code $?
