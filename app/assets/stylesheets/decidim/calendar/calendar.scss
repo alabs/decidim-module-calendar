@@ -1,0 +1,7 @@
+// = require "fullcalendar/core/main"
+// = require "fullcalendar/daygrid/main"
+
+#calendar .fc-scroller {
+  overflow-x: hidden !important;
+  overflow-y: hidden !important;
+}

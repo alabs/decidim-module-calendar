@@ -1,0 +1,37 @@
+<% provide :meta_title, t("calendar.index.title", scope: "decidim") %>
+<%= participatory_space_wrapper do %>
+  <div class="row columns">
+    <div class="title-action row collapse">
+      <h2 class="title-action__title section-heading">
+        <%= t("calendar.index.title", scope: "decidim") %>
+      </h2>
+    </div>
+    <div id="calendar"></div>
+  </div>
+<% end %>
+<%= javascript_include_tag "decidim/calendar/calendar" %>
+<%= stylesheet_link_tag "decidim/calendar/calendar" %>
+
+ <script>
+   const calendarEl = document.getElementById('calendar');
+   const calendar = new FullCalendar.Calendar(calendarEl, {
+     plugins: ["interaction", "timeGrid", "dayGrid"],
+     defaultView: "dayGridMonth",
+     locale: "es",
+     header: {
+       left: "prev,next today",
+       center: "title",
+       right: "dayGridMonth,dayGridWeek,dayGridDay"
+     },
+     events: [
+      <% Decidim::Calendar::Event.all.each do |event| %>
+         <%= calendar_event(event).html_safe %>
+         <%= "," unless event == Decidim::Calendar::Event.all.last %>
+      <% end %>
+     ]
+   });
+   $(function() {
+     calendar.setOption('locale', "<%= I18n.locale %>");
+     calendar.render();
+   });
+ </script>
