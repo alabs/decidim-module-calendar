@@ -4,5 +4,5 @@ en:
     calendar:
       index:
         title: Global Calendar
-    menu:
-      calendar: Calendar
+      menu:
+        calendar: Calendar

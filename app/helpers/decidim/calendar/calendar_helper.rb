@@ -11,7 +11,8 @@ module Decidim
           "title": "#{translated_attribute event[:title]}",
           "start": "#{event[:start_at].strftime("%FT%R")}",
           "end": "#{event[:end_at].strftime("%FT%R")}",
-          "color": "#{event[:color]}"
+          "color": "#{event[:color]}",
+          "url": "#{event[:url]}"
         })
       end
     end

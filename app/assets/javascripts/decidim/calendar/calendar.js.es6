@@ -5,3 +5,4 @@
 // = require fullcalendar/core/locales-all
 // = require_tree .
 // = require_self
+
