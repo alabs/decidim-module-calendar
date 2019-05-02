@@ -36,8 +36,8 @@ jobs:
             chmod +x ./cc-test-reporter
 
       - restore_cache:
-        keys:
-          - bundler-dependencies-{{ checksum "Gemfile.lock" }}
+          keys:
+            - bundler-dependencies-{{ checksum "Gemfile.lock" }}
 
       - save_cache:
           key: bundler-dependencies-{{ checksum "Gemfile.lock" }}
