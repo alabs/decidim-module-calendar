@@ -10,7 +10,10 @@ module Decidim
       isolate_namespace Decidim::Calendar
 
       routes do
-        resources :calendar, only: [:index, :show]
+        namespace :calendar do
+          get "/", action: :index, as: :index
+          get "/gantt", action: :gantt, as: :gantt
+        end
       end
 
       initializer "decidim_calendar.assets" do |app|

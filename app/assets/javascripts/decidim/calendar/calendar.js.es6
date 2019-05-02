@@ -3,6 +3,5 @@
 // = require fullcalendar/interaction/main
 // = require fullcalendar/daygrid/main
 // = require fullcalendar/core/locales-all
-// = require_tree .
 // = require_self
 
