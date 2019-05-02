@@ -36,3 +36,4 @@ en:
       menu:
         calendar: Calendar
         gantt: Gantt Graph
+        ical: Download ICAL

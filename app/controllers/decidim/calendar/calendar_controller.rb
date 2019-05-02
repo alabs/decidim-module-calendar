@@ -11,9 +11,15 @@ module Decidim
       end
 
       def gantt
-        @events = Decidim::ParticipatoryProcessStep.all.map do |p| 
+        @events = Decidim::ParticipatoryProcessStep.all.map do |p|
           Decidim::Calendar::EventPresenter.new(p) if p.organization == current_organization
         end
+      end
+
+      def ical
+        filename = "#{current_organization.name.parameterize}-calendar"
+        response.headers['Content-Disposition'] = 'attachment; filename="' + filename + '.ical"'
+        render plain: GeneralCalendar.for(current_organization), content_type: "text/calendar"
       end
 
       private

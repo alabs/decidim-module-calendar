@@ -13,6 +13,7 @@ module Decidim
         namespace :calendar do
           get "/", action: :index, as: :index
           get "/gantt", action: :gantt, as: :gantt
+          get "/ical", action: :ical, as: :ical
         end
       end
 
