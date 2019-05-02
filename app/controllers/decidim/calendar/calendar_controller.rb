@@ -5,7 +5,16 @@ module Decidim
     class CalendarController < Decidim::Calendar::ApplicationController
       helper Decidim::Calendar::CalendarHelper
       include ParticipatorySpaceContext
-      def index; end
+      layout "calendar"
+      def index
+        @events = Event.all(current_organization)
+      end
+
+      def gantt
+        @events = Decidim::ParticipatoryProcessStep.all.map do |p| 
+          Decidim::Calendar::EventPresenter.new(p) if p.organization == current_organization
+        end
+      end
 
       private
 

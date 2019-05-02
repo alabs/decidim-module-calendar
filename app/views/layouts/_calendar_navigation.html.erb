@@ -1,0 +1,14 @@
+<%=
+  extended_navigation_bar([
+    {
+      name: t("menu.calendar", scope: "decidim.calendar"),
+      url: calendar_index_path,
+      active: is_active_link?(calendar_index_path, :exclusive)
+    },
+    {
+      name: t("menu.gantt", scope: "decidim.calendar"),
+      url: calendar_gantt_path,
+      active: is_active_link?(calendar_gantt_path, :exclusive)
+    }
+  ])
+%>

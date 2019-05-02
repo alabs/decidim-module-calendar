@@ -8,11 +8,20 @@ module Decidim
       include Decidim::ResourceHelper
       def calendar_event(event)
         %({
-          "title": "#{translated_attribute event[:title]}",
-          "start": "#{event[:start_at].strftime("%FT%R")}",
-          "end": "#{event[:end_at].strftime("%FT%R")}",
-          "color": "#{event[:color]}",
-          "url": "#{event[:url]}"
+          "title": "#{translated_attribute event.full_title}",
+          "start": "#{event.start.strftime("%FT%R")}",
+          "end": "#{event.end.strftime("%FT%R")}",
+          "color": "#{event.color}",
+          "url": "#{event.link}"
+        })
+      end
+
+      def participatory_gantt(event)
+        %({
+          "id": "#{event.id}",
+          "name": "#{translated_attribute event.full_title}",
+          "start": "#{event.start.strftime("%FT%R")}",
+          "end": "#{event.end.strftime("%FT%R")}"
         })
       end
     end

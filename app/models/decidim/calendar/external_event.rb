@@ -10,16 +10,9 @@ module Decidim
                  class_name: "Decidim::Organization"
 
       validates :title, :start_at, :end_at, presence: true
+      validates :start_at, date: { before: :end_at, allow_blank: false, if: proc { |obj| obj.end_at.present? } }
+      validates :end_at, date: { after: :start_at, allow_blank: true, if: proc { |obj| obj.start_at.present? } }
 
-      def mounted_engine
-        "decidim_calendar"
-      end
-
-      def mounted_params
-        {
-          host: organization.host
-        }
-      end
     end
   end
 end
