@@ -1,0 +1,38 @@
+de:
+  decidim:
+    calendar:
+      admin:
+        actions:
+          new_external_event: New external event
+        external_events:
+          index:
+            title: External events
+            no_records_html: <p>No external events created.</p> <p>Start by adding a external event from the "<a href="%{new_set_link}">%{button_name}</a>" button.</p>
+          create:
+            invalid: Invalid external event
+            success: External event created successfully
+          destroy:
+            success: External event deleted successfully
+          edit:
+            save: Save external event
+          form:
+            title: External event
+          new:
+            title: New external event
+            create: Create external event
+          update:
+            invalid: Error updating external event
+            success: External event updated successfully
+        models:
+          external_events:
+            fields:
+              title: Title
+              start_at: Start at
+              end_at: End at
+              url: URL
+      index:
+        title: Global Calendar
+      menu:
+        calendar: Calendar
+        gantt: Gantt Graph
+        ical: Download ICAL
