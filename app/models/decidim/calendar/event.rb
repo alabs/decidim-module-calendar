@@ -7,6 +7,7 @@ module Decidim
         Decidim::Meetings::Meeting,
         Decidim::ParticipatoryProcessStep,
         Decidim::Debates::Debate,
+        Decidim::Consultation,
         Decidim::Calendar::ExternalEvent
       ].freeze
 

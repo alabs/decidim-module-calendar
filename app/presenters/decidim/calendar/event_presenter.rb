@@ -13,6 +13,8 @@ module Decidim
           "#5fbd4c"
         when "Decidim::Debates::Debate"
           "#d87537"
+        when "Decidim::Consultation"
+          "#A854BD"
         end
       end
 
@@ -33,6 +35,8 @@ module Decidim
                      start_date
                    elsif respond_to?(:start_at)
                      start_at
+                   elsif respond_to?(:start_voting_date)
+                     start_voting_date
                    else
                      start_time
                    end
@@ -43,6 +47,8 @@ module Decidim
                    end_date
                  elsif respond_to?(:end_at)
                    end_at
+                 elsif respond_to?(:end_voting_date)
+                    end_voting_date
                  else
                    end_time
                  end
