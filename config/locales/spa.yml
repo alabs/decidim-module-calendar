@@ -3,36 +3,36 @@ es:
     calendar:
       admin:
         actions:
-          new_external_event: New external event
+          new_external_event: Nuevo evento externo
         external_events:
           index:
-            title: External events
-            no_records_html: <p>No external events created.</p> <p>Start by adding a external event from the "<a href="%{new_set_link}">%{button_name}</a>" button.</p>
+            title: Eventos externos
+            no_records_html: <p>No se han creado eventos externos.</p> <p>Comienza añadiendo un evento externo del botón "<a href="%{new_set_link}">%{button_name}</a>".</p>
           create:
-            invalid: Invalid external event
-            success: External event created successfully
+            invalid: Evento externo inválido
+            success: Evento externo creado con éxito
           destroy:
-            success: External event deleted successfully
+            success: Evento externo eliminado correctamente
           edit:
-            save: Save external event
+            save: Guardar evento externo
           form:
-            title: External event
+            title: Evento externo
           new:
-            title: New external event
-            create: Create external event
+            title: Nuevo evento externo
+            create: Crear evento externo
           update:
-            invalid: Error updating external event
-            success: External event updated successfully
+            invalid: Error al actualizar evento externo
+            success: Evento externo actualizado correctamente
         models:
           external_events:
             fields:
-              title: Title
-              start_at: Start at
-              end_at: End at
+              title: Título
+              start_at: Iniciar en
+              end_at: Terminan en
               url: URL
       index:
-        title: Global Calendar
+        title: Calendario global
       menu:
-        calendar: Calendar
-        gantt: Gantt Graph
-        ical: Download ICAL
+        calendar: Calendario
+        gantt: Gráfico de Gantt
+        ical: Descargar ICAL
