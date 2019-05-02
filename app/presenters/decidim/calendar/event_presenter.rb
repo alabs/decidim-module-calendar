@@ -11,6 +11,8 @@ module Decidim
           "#fabc6c"
         when "Decidim::Calendar::ExternalEvent"
           "#5fbd4c"
+        when "Decidim::Debates::Debate"
+          "#d87537"
         end
       end
 

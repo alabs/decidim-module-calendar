@@ -6,6 +6,7 @@ module Decidim
       MODELS = [
         Decidim::Meetings::Meeting,
         Decidim::ParticipatoryProcessStep,
+        Decidim::Debates::Debate,
         Decidim::Calendar::ExternalEvent
       ].freeze
 
