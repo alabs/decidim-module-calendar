@@ -5,3 +5,27 @@
   overflow-x: hidden !important;
   overflow-y: hidden !important;
 }
+
+#calendar .fc-day-number{
+  display: block;
+  float: none;
+  text-align: center;
+}
+.fc-day-top{
+  background-color: #ededed;
+}
+.fc-today{
+  background-color: #fcf8e3 !important;
+}
+td{
+  border-color: #ccc !important;
+}
+
+.fc-today{
+  background-color: #F0F3B6;
+}
+
+.fc-content-skeleton td{
+  background-color: #fff;
+}
+

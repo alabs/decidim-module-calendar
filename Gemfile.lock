@@ -742,6 +742,7 @@ DEPENDENCIES
   byebug (~> 10.0)
   decidim!
   decidim-calendar!
+  decidim-consultations
   decidim-dev!
   faker (~> 1.9)
   letter_opener_web (~> 1.3)

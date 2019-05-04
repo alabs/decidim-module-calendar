@@ -27,7 +27,7 @@ jobs:
 
       - run:
           name: Install dependencies
-          command: bundle install
+          command: bundle install --path vendor/bundle
 
       - run:
           name: Setup Code Climate test-reporter
@@ -35,10 +35,14 @@ jobs:
             curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
             chmod +x ./cc-test-reporter
 
+      - restore_cache:
+          keys:
+            - bundler-dependencies-{{ checksum "Gemfile.lock" }}
+
       - save_cache:
           key: bundler-dependencies-{{ checksum "Gemfile.lock" }}
           paths:
-            - /usr/local/bundle
+            - vendor/bundle
 
       - run:
           name: Wait for db
@@ -46,7 +50,7 @@ jobs:
 
       - run:
           name: Generate test app
-          command: bundle exec rake decidim:generate_external_test_app
+          command: bundle exec rake test_app
 
       - run:
           name: Run RSpec tests
