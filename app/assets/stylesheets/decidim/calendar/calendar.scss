@@ -1,31 +1,40 @@
 // = require "fullcalendar/core/main"
 // = require "fullcalendar/daygrid/main"
 
-#calendar .fc-scroller {
-  overflow-x: hidden !important;
-  overflow-y: hidden !important;
-}
+#calendar{
+  .fc-title{
+    margin-left: 5px;
+  }
 
-#calendar .fc-day-number{
-  display: block;
-  float: none;
-  text-align: center;
-}
-.fc-day-top{
-  background-color: #ededed;
-}
-.fc-today{
-  background-color: #fcf8e3 !important;
-}
-td{
-  border-color: #ccc !important;
-}
+  .fc-scroller {
+    overflow-x: hidden !important;
+    overflow-y: hidden !important;
+  }
 
-.fc-today{
-  background-color: #F0F3B6;
-}
+  .fc-day-number{
+    display: block;
+    float: none;
+    text-align: center;
+  }
 
-.fc-content-skeleton td{
-  background-color: #fff;
-}
+  .fc-day-top{
+    background-color: #ededed;
+  }
 
+  .fc-today{
+    background-color: #fcf8e3 !important;
+  }
+
+  td{
+    border-color: #ccc !important;
+  }
+
+  .fc-today{
+    background-color: #F0F3B6;
+  }
+
+  .fc-content-skeleton td{
+    background-color: #fff;
+  }
+
+}
