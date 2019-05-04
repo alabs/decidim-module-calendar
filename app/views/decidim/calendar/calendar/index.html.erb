@@ -18,6 +18,12 @@
        center: "title",
        right: "dayGridMonth,dayGridWeek,dayGridDay"
      },
+     eventTimeFormat: {
+       hour: "2-digit",
+       minute: "2-digit",
+       hour12: true,
+       omitZeroMinute: false
+     },
      events: [
       <% @events.each do |e| %>
            <%= calendar_event(e).html_safe %>
