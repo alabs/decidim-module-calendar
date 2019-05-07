@@ -16,10 +16,11 @@ module Decidim
         %({
           "title": "#{translated_attribute event.full_title}",
           "start": "#{event.start.strftime("%FT%R")}",
-          "end": "#{event.end.strftime("%FT%R")}",
+          "end": "#{event.finish.strftime("%FT%R")}",
           "color": "#{event.color}",
           "url": "#{event.link}",
-          "resourceId": "#{event.type}"
+          "resourceId": "#{event.type}",
+          "allDay": #{event.all_day?}
         })
       end
 
@@ -29,7 +30,7 @@ module Decidim
           "name": "#{translated_attribute event.full_title}",
           "start": "#{event.start.strftime("%FT%R")}",
           "dependencies": "#{event.parent}",
-          "end": "#{event.end.strftime("%FT%R")}"
+          "end": "#{event.finish.strftime("%FT%R")}"
         })
       end
     end

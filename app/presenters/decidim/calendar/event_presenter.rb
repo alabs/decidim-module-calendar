@@ -73,16 +73,16 @@ module Decidim
                    end
       end
 
-      def end
-        @end ||= if respond_to?(:end_date)
-                   end_date
-                 elsif respond_to?(:end_at)
-                   end_at
-                 elsif respond_to?(:end_voting_date)
-                   end_voting_date
-                 else
-                   end_time
-                 end
+      def finish
+        @finish ||= if respond_to?(:end_date)
+                      end_date
+                    elsif respond_to?(:end_at)
+                      end_at
+                    elsif respond_to?(:end_voting_date)
+                      end_voting_date
+                    else
+                      end_time
+                    end
       end
 
       def full_title
@@ -94,6 +94,10 @@ module Decidim
                         else
                           title
                         end
+      end
+
+      def all_day?
+        (start.to_date..finish.to_date).count > 1
       end
     end
   end
