@@ -4,4 +4,3 @@
 // = require fullcalendar/daygrid/main
 // = require fullcalendar/core/locales-all
 // = require_self
-

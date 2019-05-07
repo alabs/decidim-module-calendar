@@ -1,5 +1,6 @@
 // = require "fullcalendar/core/main"
 // = require "fullcalendar/daygrid/main"
+@import "foundation";
 
 #calendar{
   .fc-title{
@@ -37,4 +38,65 @@
     background-color: #fff;
   }
 
+}
+        // when "Decidim::ParticipatoryProcessStep"
+        //   "#238ff7"
+        // when "Decidim::Meetings::Meeting"
+        //   "#fabc6c"
+        // when "Decidim::Calendar::ExternalEvent"
+        //   "#5fbd4c"
+        // when "Decidim::Debates::Debate"
+        //   "#d87537"
+        // when "Decidim::Consultation"
+        //   "#A854BD"
+        // end
+
+$meeting: #fabc6c !default;
+$debate: #d87537 !default;
+$consultation: #A854BD !default;
+$external_event: #5fbd4c !default;
+$participatory_step: #238ff7 !default;
+
+.calendar-filters{
+  .meeting{
+    @include button-style($meeting, $meeting, white);
+    &.hollow{
+      color: $meeting;
+      border-color: $meeting;
+      @include button-hollow;
+    }
+  }
+  .debate{
+    @include button-style($debate, $debate, white);
+    &.hollow{
+      color: $debate;
+      border-color: $debate;
+      @include button-hollow;
+    }
+
+  }
+  .consultation{
+    @include button-style($consultation, $consultation, white);
+    &.hollow{
+      color: $consultation;
+      border-color: $consultation;
+      @include button-hollow;
+    }
+  }
+  .external_event{
+    @include button-style($external_event, $external_event, white);
+    &.hollow{
+      color: $external_event;
+      border-color: $external_event;
+      @include button-hollow;
+    }
+  }
+  .participatory_step{
+    @include button-style($participatory_step, $participatory_step, white);
+    &.hollow{
+      color: $participatory_step;
+      border-color: $participatory_step;
+      @include button-hollow;
+    }
+  }
 }

@@ -8,6 +8,7 @@ module Decidim
       layout "calendar"
       def index
         @events = Event.all(current_organization)
+        @resources = %w(consultation debate external_event meeting participatory_step)
       end
 
       def gantt

@@ -18,6 +18,37 @@ module Decidim
         end
       end
 
+      def type
+        case __getobj__.class.name
+        when "Decidim::ParticipatoryProcessStep"
+          "participatory_step"
+        when "Decidim::Meetings::Meeting"
+          "meeting"
+        when "Decidim::Calendar::ExternalEvent"
+          "external_event"
+        when "Decidim::Debates::Debate"
+          "debate"
+        when "Decidim::Consultation"
+          "consultation"
+        end
+      end
+
+      def full_id
+        case __getobj__.class.name
+        when "Decidim::ParticipatoryProcessStep"
+          "#{participatory_process.id}-#{id}"
+        else
+          id
+        end
+      end
+
+      def parent
+        case __getobj__.class.name
+        when "Decidim::ParticipatoryProcessStep"
+          "#{participatory_process.id}-#{participatory_process.steps.find_by(position: position - 1).id}" if position.positive?
+        end
+      end
+
       def link
         return url if respond_to?(:url)
 
@@ -48,7 +79,7 @@ module Decidim
                  elsif respond_to?(:end_at)
                    end_at
                  elsif respond_to?(:end_voting_date)
-                    end_voting_date
+                   end_voting_date
                  else
                    end_time
                  end

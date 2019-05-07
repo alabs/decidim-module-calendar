@@ -1,6 +1,11 @@
 <% provide :meta_title, t("calendar.index.title", scope: "decidim") %>
 <%= participatory_space_wrapper do %>
   <div class="row columns">
+    <div class="calendar-filters button-group">
+      <% @resources.each do |t| %>
+        <button class="button tiny cal-filter <%= t %>" id="<%= t %>"><%= I18n.t(t, scope: "decidim.calendar.index.filters") %></button>
+      <% end %>
+    </div>
     <div id="calendar"></div>
   </div>
 <% end %>
@@ -8,6 +13,13 @@
 <%= stylesheet_link_tag "decidim/calendar/calendar" %>
 
  <script>
+   let filters = ["consultation", "external_event", "meeting", "debate", "participatory_step"];
+
+   function removeFilter(filters, filter){
+     return filters.filter((element) => element !== filter)
+   }
+
+
    const calendarEl = document.getElementById('calendar');
    const calendar = new FullCalendar.Calendar(calendarEl, {
      plugins: ["interaction", "timeGrid", "dayGrid"],
@@ -29,10 +41,23 @@
            <%= calendar_event(e).html_safe %>
            <%= "," unless e == @events.last %>
       <% end %>
-     ]
+     ],
+     eventRender: function(info) {
+      return filters.includes(info.event.extendedProps.resourceId);
+     }
    });
    $(function() {
      calendar.setOption('locale', "<%= I18n.locale %>");
      calendar.render();
+     $(".cal-filter").on("click", function() {
+       $(this).toggleClass("hollow");
+       let filter = $(this).attr("id");
+       if (filters.includes(filter)) {
+         filters = removeFilter(filters, filter)
+       } else {
+         filters.push(filter)
+       }
+       calendar.rerenderEvents()
+     });
    });
  </script>
