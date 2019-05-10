@@ -33,6 +33,25 @@ module Decidim
           "end": "#{event.finish.strftime("%FT%R")}"
         })
       end
+
+      def participatory_space_wrapper(&block)
+        content_tag :main, class: "wrapper" do
+          concat(capture(&block))
+        end
+      end
+
+      def extended_navigation_bar(items, max_items: 5)
+        return unless items.any?
+        extra_items = []
+        active_item = items.find { |item| item[:active] }
+
+        render partial: "decidim/shared/extended_navigation_bar", locals: {
+          items: items,
+          extra_items: extra_items,
+          active_item: active_item,
+          max_items: 5
+        }
+      end
     end
   end
 end

@@ -42,3 +42,7 @@ en:
         calendar: Calendar
         gantt: Gantt Graph
         ical: Download ICAL
+    shared:
+      extended_navigation_bar:
+        unfold: Unfold
+        more: More
