@@ -4,7 +4,7 @@ source "https://rubygems.org"
 
 ruby RUBY_VERSION
 
-gem "decidim", git: "https://github.com/decidim/decidim"
+gem "decidim", git: "https://github.com/decidim/decidim", branch: "0.13-stable"
 gem "decidim-calendar", path: "."
 gem "decidim-consultations"
 
@@ -15,7 +15,7 @@ group :development, :test do
   gem "bootsnap"
   gem "byebug", "~> 10.0", platform: :mri
 
-  gem "decidim-dev", git: "https://github.com/decidim/decidim"
+  gem "decidim-dev"
 end
 
 group :development do
