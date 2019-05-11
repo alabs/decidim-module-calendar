@@ -8,10 +8,11 @@ module Decidim
       layout "calendar"
       def index
         @events = Event.all(current_organization)
+        @resources = %w(consultation debate external_event meeting participatory_step)
       end
 
       def gantt
-        @events = Decidim::ParticipatoryProcessStep.all.map do |p|
+        @events = Decidim::ParticipatoryProcessStep.all.order(decidim_participatory_process_id: :asc, position: :asc, start_date: :asc).map do |p|
           Decidim::Calendar::EventPresenter.new(p) if p.organization == current_organization
         end
       end
