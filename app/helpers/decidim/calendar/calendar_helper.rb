@@ -19,7 +19,7 @@ module Decidim
 
       def calendar_event(event)
         {
-          title: translated_attribute(event.title),
+          title: translated_attribute(event.full_title),
           start: event.start.strftime("%FT%R"),
           end: event.finish.strftime("%FT%R"),
           color: event.color,
