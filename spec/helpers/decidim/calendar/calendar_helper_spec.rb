@@ -10,7 +10,7 @@ module Decidim
       let(:event) { create(:external_event) }
 
       describe "event_hash" do
-        it { is_expected.to include("url", "title") }
+        it { is_expected.to include(:url, :title) }
       end
     end
   end
