@@ -12,16 +12,22 @@ module Decidim
           "title": "#{I18n.t(name, scope: "decidim.calendar.index.filters")}"
         })
       end
+
+      def render_events(events)
+        events.collect { |event| calendar_event(event) }.to_json
+      end
+
       def calendar_event(event)
-        %({
-          "title": "#{translated_attribute event.full_title}",
-          "start": "#{event.start.strftime("%FT%R")}",
-          "end": "#{event.finish.strftime("%FT%R")}",
-          "color": "#{event.color}",
-          "url": "#{event.link}",
-          "resourceId": "#{event.type}",
-          "allDay": #{event.all_day?}
-        })
+        {
+          title: translated_attribute(event.title),
+          start: event.start.strftime("%FT%R"),
+          end: event.finish.strftime("%FT%R"),
+          color: event.color,
+          url: event.link,
+          resourceId: event.type,
+          allDay: event.all_day?,
+          subtitle: (translated_attribute(event.subtitle) unless event.subtitle.empty?)
+        }.compact
       end
 
       def participatory_gantt(event)

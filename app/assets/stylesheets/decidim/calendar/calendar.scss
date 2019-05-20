@@ -2,6 +2,12 @@
 // = require "fullcalendar/daygrid/main"
 @import "foundation";
 
+$meeting: #ed1c24 !default;
+$debate: #099329 !default;
+$consultation: #92278f !default;
+$external_event: #ed650b !default;
+$participatory_step: #3A4A9F !default;
+
 #calendar{
   .fc-title{
     margin-left: 5px;
@@ -39,23 +45,6 @@
   }
 
 }
-        // when "Decidim::ParticipatoryProcessStep"
-        //   "#238ff7"
-        // when "Decidim::Meetings::Meeting"
-        //   "#fabc6c"
-        // when "Decidim::Calendar::ExternalEvent"
-        //   "#5fbd4c"
-        // when "Decidim::Debates::Debate"
-        //   "#d87537"
-        // when "Decidim::Consultation"
-        //   "#A854BD"
-        // end
-
-$meeting: #fabc6c !default;
-$debate: #d87537 !default;
-$consultation: #A854BD !default;
-$external_event: #5fbd4c !default;
-$participatory_step: #238ff7 !default;
 
 .calendar-filters{
   .meeting{
