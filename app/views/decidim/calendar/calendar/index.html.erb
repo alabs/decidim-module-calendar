@@ -36,14 +36,13 @@
        hour12: false,
        omitZeroMinute: false
      },
-     events: [
-      <% @events.each do |e| %>
-           <%= calendar_event(e).html_safe %>
-           <%= "," unless e == @events.last %>
-      <% end %>
-     ],
+     events: <%= render_events(@events).html_safe %>,
      eventRender: function(info) {
-      return filters.includes(info.event.extendedProps.resourceId);
+       if ("subtitle" in info.event.extendedProps) {
+         title = "<span class=\"fc-title\"><b>" + info.event.title + "</b> - " + info.event.extendedProps.subtitle + "</span>"
+         info.el.firstChild.innerHTML = title
+       }
+       return filters.includes(info.event.extendedProps.resourceId);
      }
    });
    $(function() {
