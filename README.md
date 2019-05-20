@@ -9,11 +9,11 @@ This [Decidim](https://github.com/decidim/decidim) module enable a multitenant g
 ### Features:
  - Display past and future events in from of calendar and agenda.
  - Display gantt graph of participatory processes
- - Download ICAL for import 
+ - Download ICAL for import
 
 ## Instalation
 
-Edit the Gemfile an add this lines:
+Edit the Gemfile and add this lines:
 
 **NOTE: decidim-consultations is required**
 
