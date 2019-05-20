@@ -13,10 +13,10 @@ Gem::Specification.new do |s|
   s.required_ruby_version = ">= 2.3.1"
 
   s.name = "decidim-calendar"
-  s.summary = "A decidim calendar module"
-  s.description = "Global calendar."
+  s.summary = "A decidim module to add a global calendar"
+  s.description = "A decidim module to add calendar functionalities for participatory process, meetings, debates, consultations and external events"
 
-  s.files = Dir["{app,config,lib}/**/*", "LICENSE-AGPLv3.txt", "Rakefile", "README.md"]
+  s.files = Dir["{app,config,db,lib,vendor}/**/*", "LICENSE-AGPLv3.txt", "Rakefile", "README.md"]
 
   s.add_dependency "decidim-admin", Decidim::Calendar.version
   s.add_dependency "decidim-consultations", Decidim::Calendar.version

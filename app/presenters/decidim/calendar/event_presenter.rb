@@ -6,15 +6,15 @@ module Decidim
       def color
         case __getobj__.class.name
         when "Decidim::ParticipatoryProcessStep"
-          "#238ff7"
+          "#3A4A9F"
         when "Decidim::Meetings::Meeting"
-          "#fabc6c"
+          "#ed1c24"
         when "Decidim::Calendar::ExternalEvent"
-          "#5fbd4c"
+          "#ed650b"
         when "Decidim::Debates::Debate"
-          "#d87537"
+          "#099329"
         when "Decidim::Consultation"
-          "#A854BD"
+          "#92278f"
         end
       end
 
@@ -88,12 +88,19 @@ module Decidim
       def full_title
         @full_title ||= case __getobj__.class.name
                         when "Decidim::ParticipatoryProcessStep"
-                          participatory_process.title.merge(title) do |_k, v, o|
-                            "#{v} - #{o}"
-                          end
+                          participatory_process.title
                         else
                           title
                         end
+      end
+
+      def subtitle
+        @subtitle ||= case __getobj__.class.name
+                      when "Decidim::ParticipatoryProcessStep"
+                        title
+                      else
+                        ""
+                      end
       end
 
       def all_day?

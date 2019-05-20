@@ -15,7 +15,7 @@ module Decidim
 
         @ical = Icalendar::Event.new
         @ical.dtstart = Icalendar::Values::DateTime.new(@event.start)
-        @ical.dtend = Icalendar::Values::DateTime.new(@event.end)
+        @ical.dtend = Icalendar::Values::DateTime.new(@event.finish)
         @ical.summary = translated_attribute @event.full_title
         @ical.url = @event.link
         @ical
