@@ -4,7 +4,7 @@ module Decidim
   # Holds decidim-calendar version
   module Calendar
     def self.version
-      "0.16.0"
+      "0.16.1"
     end
   end
 end

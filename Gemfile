@@ -4,7 +4,7 @@ source "https://rubygems.org"
 
 ruby RUBY_VERSION
 
-gem "decidim", git: "https://github.com/decidim/decidim"
+gem "decidim", git: "https://github.com/decidim/decidim", branch: "0.16-stable"
 gem "decidim-calendar", path: "."
 gem "decidim-consultations"
 
