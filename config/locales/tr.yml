@@ -32,6 +32,12 @@ tr:
               url: URL
       index:
         title: Global Calendar
+        filters:
+          consultation: Consultations
+          debate: Debates
+          external_event: External Events
+          meeting: Meetings
+          participatory_step: Participatory Process
       menu:
         calendar: Calendar
         gantt: Gantt Graph
