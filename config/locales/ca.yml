@@ -35,7 +35,7 @@ ca:
         filters:
           consultation: Consultes
           debate: Debats
-          external_event: Esdeveniments externs
+          external_event: External events
           meeting: Trobades
           participatory_step: Processos participatius
       menu:
