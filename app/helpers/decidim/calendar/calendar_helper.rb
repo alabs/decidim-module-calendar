@@ -21,7 +21,7 @@ module Decidim
         {
           title: translated_attribute(event.full_title),
           start: (event.start.strftime("%FT%R") unless event.start.nil?),
-          end: (event.finish.strftime("%FT%R") unless event.start.nil?),
+          end: (event.finish.strftime("%FT%R") unless event.finish.nil?),
           color: event.color,
           url: event.link,
           resourceId: event.type,
