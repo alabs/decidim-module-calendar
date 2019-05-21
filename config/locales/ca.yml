@@ -33,11 +33,11 @@ ca:
       index:
         title: Calendari global
         filters:
-          consultation: Consultations
-          debate: Debates
-          external_event: External Events
-          meeting: Meetings
-          participatory_step: Participatory Process
+          consultation: Consultes
+          debate: Debats
+          external_event: Esdeveniments externs
+          meeting: Trobades
+          participatory_step: Processos participatius
       menu:
         calendar: Calendari
         gantt: Gràfic de Gantt
