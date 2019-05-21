@@ -1,4 +1,4 @@
-pt:
+pt-BR:
   decidim:
     calendar:
       admin:
@@ -35,7 +35,7 @@ pt:
         filters:
           consultation: Consultations
           debate: Debates
-          external_event: External Events
+          external_event: External events
           meeting: Meetings
           participatory_step: Participatory Process
       menu:
