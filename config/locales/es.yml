@@ -35,7 +35,7 @@ es:
         filters:
           consultation: Consultas
           debate: Debates
-          external_event: External events
+          external_event: Eventos externos
           meeting: Encuentros
           participatory_step: Procesos participativos
       menu:
