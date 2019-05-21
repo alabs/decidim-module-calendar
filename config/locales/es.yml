@@ -33,11 +33,11 @@ es:
       index:
         title: Calendario global
         filters:
-          consultation: Consultations
+          consultation: Consultas
           debate: Debates
-          external_event: External Events
-          meeting: Meetings
-          participatory_step: Participatory Process
+          external_event: Eventos externos
+          meeting: Encuentros
+          participatory_step: Procesos participativos
       menu:
         calendar: Calendario
         gantt: Gráfico de Gantt
