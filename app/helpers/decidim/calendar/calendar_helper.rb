@@ -20,8 +20,8 @@ module Decidim
       def calendar_event(event)
         {
           title: translated_attribute(event.full_title),
-          start: event.start.strftime("%FT%R"),
-          end: event.finish.strftime("%FT%R"),
+          start: (event.start.strftime("%FT%R") unless event.start.nil?),
+          end: (event.finish.strftime("%FT%R") unless event.start.nil?),
           color: event.color,
           url: event.link,
           resourceId: event.type,
