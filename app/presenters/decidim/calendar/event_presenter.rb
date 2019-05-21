@@ -83,6 +83,7 @@ module Decidim
                     else
                       end_time
                     end
+        @finish || start
       end
 
       def full_title
