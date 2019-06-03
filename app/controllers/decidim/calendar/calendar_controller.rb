@@ -8,7 +8,11 @@ module Decidim
       layout "calendar"
       def index
         @events = Event.all(current_organization)
-        @resources = %w(consultation debate external_event meeting participatory_step)
+	if defined? Decidim::Consultation
+          @resources = %w(consultation debate external_event meeting participatory_step)
+	else
+          @resources = %w(debate external_event meeting participatory_step)
+	end
       end
 
       def gantt

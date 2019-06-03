@@ -15,18 +15,16 @@ This [Decidim](https://github.com/decidim/decidim) module enable a multitenant g
 
 Edit the Gemfile and add this lines:
 
-**NOTE: decidim-consultations is required**
+**NOTE: decidim-consultations is optional**
 
 ```ruby
 gem "decidim-calendar"
-gem "decidim-consultations"
 ```
 
 Run this rake tasks:
 
 ```bash
 bundle exec rake decidim_calendar:install:migrations
-bundle exec rake decidim_consultations:install:migrations
 bundle exec rake db:migrate
 ```
 

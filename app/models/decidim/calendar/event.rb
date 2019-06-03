@@ -4,13 +4,22 @@ module Decidim
   module Calendar
     module Event
 
-      MODELS = [
-        Decidim::Meetings::Meeting,
-        Decidim::ParticipatoryProcessStep,
-        Decidim::Debates::Debate,
-        Decidim::Consultation,
-        Decidim::Calendar::ExternalEvent
-      ].freeze
+      if defined? Decidim::Consultation
+        MODELS = [
+          Decidim::Meetings::Meeting,
+          Decidim::ParticipatoryProcessStep,
+          Decidim::Debates::Debate,
+          Decidim::Consultation,
+          Decidim::Calendar::ExternalEvent
+        ].freeze
+      else
+        MODELS = [
+          Decidim::Meetings::Meeting,
+          Decidim::ParticipatoryProcessStep,
+          Decidim::Debates::Debate,
+          Decidim::Calendar::ExternalEvent
+        ].freeze
+      end
 
       def self.all(current_organization)
         events = []

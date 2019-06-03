@@ -13,7 +13,11 @@
 <%= stylesheet_link_tag "decidim/calendar/calendar" %>
 
  <script>
+   <% if defined? Decidim::Consultation %>
    let filters = ["consultation", "external_event", "meeting", "debate", "participatory_step"];
+   <% else %>
+   let filters = ["external_event", "meeting", "debate", "participatory_step"];
+   <% end %>
 
    function removeFilter(filters, filter){
      return filters.filter((element) => element !== filter)
