@@ -1,6 +1,7 @@
 # Decidim::Calendar
 
 [![Build Status](https://img.shields.io/circleci/project/github/alabs/decidim-module-calendar/master.svg)](https://circleci.com/gh/alabs/decidim-module-calendar)
+[![Coverage](https://img.shields.io/codeclimate/coverage/alabs/decidim-module-calendar.svg)](https://codeclimate.com/github/alabs/decidim-module-calendar)
 [![Maintainability](https://img.shields.io/codeclimate/maintainability/alabs/decidim-module-calendar.svg)](https://codeclimate.com/github/alabs/decidim-module-calendar/maintainability)
 
 This [Decidim](https://github.com/decidim/decidim) module enable a multitenant
