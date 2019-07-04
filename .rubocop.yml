@@ -65,7 +65,7 @@ AllCops:
   # If a value is specified for TargetRubyVersion then it is used.
   # Else if .ruby-version exists and it contains an MRI version it is used.
   # Otherwise we fallback to the oldest officially supported Ruby version (2.0).
-  TargetRubyVersion: 2.3
+  TargetRubyVersion: 2.5
 
   RSpec:
     Patterns:
@@ -469,7 +469,7 @@ Naming/FileName:
   # files with a shebang in the first line).
   IgnoreExecutableScripts: true
 
-Layout/FirstParameterIndentation:
+Layout/IndentFirstArgument:
   EnforcedStyle: special_for_inner_method_call_in_parentheses
   SupportedStyles:
     # The first parameter should always be indented one step more than the
@@ -506,7 +506,7 @@ Style/FormatStringToken:
   EnforcedStyle: template
 
 Style/FrozenStringLiteralComment:
-  EnforcedStyle: when_needed
+  EnforcedStyle: always
   SupportedStyles:
     # `when_needed` will add the frozen string literal comment to files
     # only when the `TargetRubyVersion` is set to 2.3+.
@@ -559,7 +559,7 @@ Layout/IndentationWidth:
   Width: 2
 
 # Checks the indentation of the first element in an array literal.
-Layout/IndentArray:
+Layout/IndentFirstArrayElement:
   # The value `special_inside_parentheses` means that array literals with
   # brackets that have their opening bracket on the same line as a surrounding
   # opening round parenthesis, shall have their first element indented relative
@@ -587,7 +587,7 @@ Layout/IndentAssignment:
   IndentationWidth: ~
 
 # Checks the indentation of the first key in a hash literal.
-Layout/IndentHash:
+Layout/IndentFirstHashElement:
   # The value `special_inside_parentheses` means that hash literals with braces
   # that have their opening brace on the same line as a surrounding opening
   # round parenthesis, shall have their first key indented relative to the
@@ -771,7 +771,7 @@ Style/ParenthesesAroundCondition:
 
 Style/PercentLiteralDelimiters:
   PreferredDelimiters:
-    "%":  ()
+    "%": ()
     "%i": ()
     "%q": ()
     "%Q": ()
@@ -784,8 +784,8 @@ Style/PercentLiteralDelimiters:
 Style/PercentQLiterals:
   EnforcedStyle: lower_case_q
   SupportedStyles:
-    - lower_case_q # Use %q when possible, %Q when necessary
-    - upper_case_q # Always use %Q
+    - lower_case_q  # Use %q when possible, %Q when necessary
+    - upper_case_q  # Always use %Q
 
 Naming/PredicateName:
   # Predicate name prefixes.
@@ -820,8 +820,8 @@ Style/Documentation:
 Style/RaiseArgs:
   EnforcedStyle: exploded
   SupportedStyles:
-    - compact # raise Exception.new(msg)
-    - exploded # raise Exception, msg
+    - compact  # raise Exception.new(msg)
+    - exploded  # raise Exception, msg
 
 Style/RedundantReturn:
   # When true allows code like `return x, y`.
@@ -968,7 +968,8 @@ Style/SymbolArray:
 
 Style/SymbolProc:
   # A list of method names to be ignored by the check.
-  # The names should be fairly unique, otherwise you'll end up ignoring lots of code.
+  # The names should be fairly unique,
+  # otherwise you'll end up ignoring lots of code.
   IgnoredMethods:
     - respond_to
     - define_method
@@ -1062,7 +1063,8 @@ Naming/VariableNumber:
     - normalcase
     - non_integer
 
-# WordArray enforces how array literals of word-like strings should be expressed.
+# WordArray enforces how array literals of word-like
+# strings should be expressed.
 Style/WordArray:
   EnforcedStyle: percent
   SupportedStyles:
@@ -1188,10 +1190,6 @@ Lint/UnusedMethodArgument:
   IgnoreEmptyMethods: true
 
 ##################### Performance ############################
-
-Performance/RedundantMerge:
-  # Max number of key-value pairs to consider an offense
-  MaxKeyValuePairs: 2
 
 Metrics/BlockLength:
   Enabled: false

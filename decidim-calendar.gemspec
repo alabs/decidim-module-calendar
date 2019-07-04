@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.email = ["mijail@riseup.net"]
   s.license = "AGPL-3.0"
   s.homepage = "https://github.com/alabs/decidim-module-calendar"
-  s.required_ruby_version = ">= 2.3.1"
+  s.required_ruby_version = ">= 2.5"
 
   s.name = "decidim-calendar"
   s.summary = "A decidim module to add a global calendar"
@@ -19,6 +19,5 @@ Gem::Specification.new do |s|
   s.files = Dir["{app,config,db,lib,vendor}/**/*", "LICENSE-AGPLv3.txt", "Rakefile", "README.md"]
 
   s.add_dependency "decidim-admin", Decidim::Calendar.version
-  s.add_dependency "decidim-consultations", Decidim::Calendar.version
   s.add_dependency "decidim-core", Decidim::Calendar.version
 end
