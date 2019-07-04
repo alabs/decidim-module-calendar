@@ -8,7 +8,8 @@ module Decidim
       layout "calendar"
       def index
         @events = Event.all(current_organization)
-        @resources = %w(consultation debate external_event meeting participatory_step)
+        @resources = %w(debate external_event meeting participatory_step)
+        @resources = @resources << "consultation" if defined? Decidim::Consultation
       end
 
       def gantt
@@ -19,7 +20,7 @@ module Decidim
 
       def ical
         filename = "#{current_organization.name.parameterize}-calendar"
-        response.headers['Content-Disposition'] = 'attachment; filename="' + filename + '.ical"'
+        response.headers["Content-Disposition"] = 'attachment; filename="' + filename + '.ical"'
         render plain: GeneralCalendar.for(current_organization), content_type: "text/calendar"
       end
 
