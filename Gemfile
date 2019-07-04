@@ -13,7 +13,7 @@ gem "uglifier", "~> 4.1"
 
 group :development, :test do
   gem "bootsnap"
-  gem "byebug", "~> 10.0", platform: :mri
+  gem "byebug", "~> 11.0", platform: :mri
 
   gem "decidim-dev", git: "https://github.com/decidim/decidim"
 end
