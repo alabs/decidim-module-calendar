@@ -18,6 +18,6 @@ Gem::Specification.new do |s|
 
   s.files = Dir["{app,config,db,lib,vendor}/**/*", "LICENSE-AGPLv3.txt", "Rakefile", "README.md"]
 
-  s.add_dependency "decidim-admin", Decidim::Calendar.version
-  s.add_dependency "decidim-core", Decidim::Calendar.version
+  s.add_dependency "decidim-admin", Decidim::Calendar::DECIDIM_VERSION
+  s.add_dependency "decidim-core", Decidim::Calendar::DECIDIM_VERSION
 end
