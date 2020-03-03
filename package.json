@@ -1,6 +1,6 @@
 {
   "name": "decidim-calendar",
-  "version": "0.19-dev",
+  "version": "0.19.0",
   "license": "AGPL-3.0",
   "scripts": {
     "lint": "eslint -c .eslintrc.json --ext .js,.js.es6 ."
