@@ -3,42 +3,42 @@ fr:
     calendar:
       admin:
         actions:
-          new_external_event: New external event
+          new_external_event: Nouvel événement externe
         external_events:
           index:
-            title: External events
-            no_records_html: <p>No external events created.</p> <p>Start by adding a external event from the "<a href="%{new_set_link}">%{button_name}</a>" button.</p>
+            title: Évènements externes
+            no_records_html: <p>Aucun événement externe créé.</p> <p>Commencez par ajouter un événement externe du bouton "<a href="%{new_set_link}">%{button_name}</a>.</p>
           create:
-            invalid: Invalid external event
-            success: External event created successfully
+            invalid: Évènement externe invalide
+            success: Événement externe créé avec succès
           destroy:
-            success: External event deleted successfully
+            success: Événement externe supprimé avec succès
           edit:
-            save: Save external event
+            save: Enregistrer l'événement externe
           form:
-            title: External event
+            title: Événement externe
           new:
-            title: New external event
-            create: Create external event
+            title: Nouvel événement externe
+            create: Créer un événement externe
           update:
-            invalid: Error updating external event
-            success: External event updated successfully
+            invalid: Erreur lors de la mise à jour de l'événement externe
+            success: Événement externe mis à jour avec succès
         models:
           external_events:
             fields:
-              title: Title
-              start_at: Start at
-              end_at: End at
+              title: Titre
+              start_at: Commence à
+              end_at: Prend fin à
               url: URL
       index:
-        title: Global Calendar
+        title: Calendrier global
         filters:
           consultation: Consultations
-          debate: Debates
+          debate: Débats
           external_event: External Events
-          meeting: Meetings
-          participatory_step: Participatory Process
+          meeting: Réunions
+          participatory_step: Concertation
       menu:
-        calendar: Calendar
-        gantt: Gantt Graph
-        ical: Download ICAL
+        calendar: Calendrier
+        gantt: Graphe de Gantt
+        ical: Télécharger iCAL
