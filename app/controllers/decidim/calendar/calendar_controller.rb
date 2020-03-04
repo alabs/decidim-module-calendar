@@ -8,18 +8,19 @@ module Decidim
       layout "calendar"
       def index
         @events = Event.all(current_organization)
-        @resources = %w(consultation debate external_event meeting participatory_step)
+        @resources = %w(debate external_event meeting participatory_step)
+        @resources = @resources << "consultation" if defined? Decidim::Consultation
       end
 
       def gantt
-        @events = Decidim::ParticipatoryProcessStep.all.order(decidim_participatory_process_id: :asc, position: :asc, start_date: :asc).map do |p|
+        @events = Decidim::ParticipatoryProcessStep.where.not(start_date: nil).order(decidim_participatory_process_id: :asc, position: :asc, start_date: :asc).map do |p|
           Decidim::Calendar::EventPresenter.new(p) if p.organization == current_organization
         end
       end
 
       def ical
         filename = "#{current_organization.name.parameterize}-calendar"
-        response.headers['Content-Disposition'] = 'attachment; filename="' + filename + '.ical"'
+        response.headers["Content-Disposition"] = 'attachment; filename="' + filename + '.ical"'
         render plain: GeneralCalendar.for(current_organization), content_type: "text/calendar"
       end
 

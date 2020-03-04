@@ -83,6 +83,7 @@ module Decidim
                     else
                       end_time
                     end
+        @finish || start
       end
 
       def full_title
@@ -104,6 +105,8 @@ module Decidim
       end
 
       def all_day?
+        return false if start.nil? || finish.nil?
+
         (start.to_date..finish.to_date).count > 1
       end
     end

@@ -13,7 +13,7 @@
 <%= stylesheet_link_tag "decidim/calendar/calendar" %>
 
  <script>
-   let filters = ["consultation", "external_event", "meeting", "debate", "participatory_step"];
+   let filters = <%= @resources.to_json.html_safe %>;
 
    function removeFilter(filters, filter){
      return filters.filter((element) => element !== filter)
