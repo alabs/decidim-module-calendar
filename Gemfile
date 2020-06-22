@@ -8,7 +8,7 @@ gem "decidim", git: "https://github.com/decidim/decidim"
 gem "decidim-calendar", path: "."
 gem "decidim-consultations"
 
-gem "puma", "~> 3.0"
+gem "puma", ">= 4.3"
 gem "uglifier", "~> 4.1"
 
 group :development, :test do
