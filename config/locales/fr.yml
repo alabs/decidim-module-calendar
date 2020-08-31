@@ -42,3 +42,8 @@ fr:
         calendar: Calendrier
         gantt: Graphe de Gantt
         ical: Télécharger iCAL
+  activerecord:
+    models:
+      decidim/calendar:
+        one: Calendrier
+        other: Calendriers
