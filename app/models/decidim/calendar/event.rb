@@ -4,9 +4,9 @@ module Decidim
   module Calendar
     module Event
       @models = [
-        Decidim::Meetings::Meeting,
+        Decidim::Meetings::Meeting.includes(component: :participatory_space),
         Decidim::ParticipatoryProcessStep,
-        Decidim::Debates::Debate,
+        Decidim::Debates::Debate.includes(component: :participatory_space),
         Decidim::Calendar::ExternalEvent
       ]
 
