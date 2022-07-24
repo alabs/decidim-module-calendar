@@ -4,8 +4,12 @@ module Decidim
   module Calendar
     class CalendarController < Decidim::Calendar::ApplicationController
       helper Decidim::Calendar::CalendarHelper
+      include Decidim::Calendar::CalendarHelper
       include ParticipatorySpaceContext
       layout "calendar"
+
+      helper_method :tasks
+
       def index
         @events = Event.all(current_organization)
         @resources = %w(debate external_event meeting participatory_step)
@@ -28,6 +32,10 @@ module Decidim
 
       def current_participatory_space_manifest
         @current_participatory_space_manifest ||= Decidim.find_participatory_space_manifest(:calendar)
+      end
+
+      def tasks
+        @tasks ||= @events.map{ |space| participatory_gantt(space) }
       end
     end
   end

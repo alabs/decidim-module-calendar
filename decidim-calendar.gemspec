@@ -10,13 +10,13 @@ Gem::Specification.new do |s|
   s.email = ["mijail@riseup.net"]
   s.license = "AGPL-3.0"
   s.homepage = "https://github.com/alabs/decidim-module-calendar"
-  s.required_ruby_version = ">= 2.5"
+  s.required_ruby_version = ">= 2.7"
 
   s.name = "decidim-calendar"
   s.summary = "A decidim module to add a global calendar"
   s.description = "A decidim module to add calendar functionalities for participatory process, meetings, debates, consultations and external events"
 
-  s.files = Dir["{app,config,db,lib,vendor}/**/*", "LICENSE-AGPLv3.txt", "Rakefile", "README.md"]
+  s.files = Dir["{app,config,db,lib,vendor}/**/*", "LICENSE-AGPLv3.txt", "package.json", "package-lock.json", "Rakefile", "README.md"]
 
   s.add_dependency "decidim-admin", Decidim::Calendar::DECIDIM_VERSION
   s.add_dependency "decidim-core", Decidim::Calendar::DECIDIM_VERSION

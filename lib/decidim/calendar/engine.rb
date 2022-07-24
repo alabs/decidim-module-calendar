@@ -17,13 +17,14 @@ module Decidim
         end
       end
 
-      initializer "decidim_calendar.assets" do |app|
-        app.config.assets.precompile += %w(decidim_calendar_manifest.js decidim_calendar_manifest.css)
+      initializer "[module_name].webpacker.assets_path" do
+        Decidim.register_assets_path File.expand_path("app/packs", root)
       end
 
       initializer "decidim_calendar.menu" do
         Decidim.menu :menu do |menu|
-          menu.item I18n.t("menu.calendar", scope: "decidim.calendar"),
+          menu.add_item :calendar_menu,
+                    I18n.t("menu.calendar", scope: "decidim.calendar"),
                     decidim_calendar.calendar_index_path,
                     position: 6.0,
                     active: :inclusive

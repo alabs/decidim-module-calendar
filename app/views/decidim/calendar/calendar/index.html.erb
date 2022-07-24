@@ -9,8 +9,8 @@
     <div id="calendar"></div>
   </div>
 <% end %>
-<%= javascript_include_tag "decidim/calendar/calendar" %>
-<%= stylesheet_link_tag "decidim/calendar/calendar" %>
+<%= javascript_pack_tag "decidim_calendar" %>
+<%= stylesheet_pack_tag "decidim_calendar" %>
 
  <script>
    let filters = <%= @resources.to_json.html_safe %>;

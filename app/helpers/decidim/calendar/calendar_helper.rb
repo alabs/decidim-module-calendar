@@ -31,13 +31,13 @@ module Decidim
       end
 
       def participatory_gantt(event)
-        %({
-          "id": "#{event.full_id}",
-          "name": "#{translated_attribute event.full_title} - #{translated_attribute event.subtitle}",
-          "start": "#{event.start.strftime("%FT%R")}",
-          "dependencies": "#{event.parent}",
-          "end": "#{event.finish.strftime("%FT%R")}"
-        })
+        {
+          id: event.full_id,
+          name: "#{translated_attribute event.full_title} - #{translated_attribute event.subtitle}",
+          start: event.start.strftime("%FT%R"),
+          dependencies: event.parent,
+          end: event.finish.strftime("%FT%R")
+        }
       end
     end
   end
