@@ -3,7 +3,7 @@
 module Decidim
   # Holds decidim-calendar version
   module Calendar
-    DECIDIM_VERSION = [">= 0.25.0", "< 0.27"]
+    DECIDIM_VERSION = [">= 0.25.0", "< 0.27"].freeze
 
     def self.version
       "0.26.0"

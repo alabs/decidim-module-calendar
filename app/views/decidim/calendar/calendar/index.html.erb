@@ -1,62 +1,17 @@
 <% provide :meta_title, t("calendar.index.title", scope: "decidim") %>
+
 <%= participatory_space_wrapper do %>
   <div class="row columns">
     <div class="calendar-filters button-group">
-      <% @resources.each do |t| %>
-        <button class="button tiny cal-filter <%= t %>" id="<%= t %>"><%= I18n.t(t, scope: "decidim.calendar.index.filters") %></button>
+      <% available_events.each do |_key,item| %>
+        <button class="button tiny cal-filter <%= item[:id] %>" id="<%= item[:id] %>"><%= I18n.t(item[:id], scope: "decidim.calendar.index.filters") %></button>
       <% end %>
     </div>
-    <div id="calendar"></div>
+    <%= content_tag :div, "", id: "calendar", data: {
+        locale: I18n.locale, 
+        events: render_events(@events)
+      } %>
   </div>
 <% end %>
 <%= javascript_pack_tag "decidim_calendar" %>
 <%= stylesheet_pack_tag "decidim_calendar" %>
-
- <script>
-   let filters = <%= @resources.to_json.html_safe %>;
-
-   function removeFilter(filters, filter){
-     return filters.filter((element) => element !== filter)
-   }
-
-
-   const calendarEl = document.getElementById('calendar');
-   const calendar = new FullCalendar.Calendar(calendarEl, {
-     plugins: ["interaction", "timeGrid", "dayGrid"],
-     defaultView: "dayGridMonth",
-     locale: "es",
-     header: {
-       left: "prev,next today",
-       center: "title",
-       right: "dayGridMonth,dayGridWeek,dayGridDay"
-     },
-     eventTimeFormat: {
-       hour: "2-digit",
-       minute: "2-digit",
-       hour12: false,
-       omitZeroMinute: false
-     },
-     events: <%= render_events(@events).html_safe %>,
-     eventRender: function(info) {
-       if ("subtitle" in info.event.extendedProps) {
-         title = "<span class=\"fc-title\"><b>" + info.event.title + "</b> - " + info.event.extendedProps.subtitle + "</span>"
-         info.el.firstChild.innerHTML = title
-       }
-       return filters.includes(info.event.extendedProps.resourceId);
-     }
-   });
-   $(function() {
-     calendar.setOption('locale', "<%= I18n.locale %>");
-     calendar.render();
-     $(".cal-filter").on("click", function() {
-       $(this).toggleClass("hollow");
-       let filter = $(this).attr("id");
-       if (filters.includes(filter)) {
-         filters = removeFilter(filters, filter)
-       } else {
-         filters.push(filter)
-       }
-       calendar.rerenderEvents()
-     });
-   });
- </script>

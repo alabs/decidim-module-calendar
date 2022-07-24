@@ -1,5 +1,3 @@
-// require("frappe-gantt/dist/frappe-gantt.js");
-// import Gantt from "frappe-gantt/src/index.js"
 import Gantt from 'frappe-gantt';
 const tasks = JSON.parse(document.getElementById("gantt").dataset.tasks);
 

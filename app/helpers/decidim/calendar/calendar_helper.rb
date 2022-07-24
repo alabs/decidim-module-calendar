@@ -6,11 +6,9 @@ module Decidim
       include Decidim::ApplicationHelper
       include Decidim::TranslationsHelper
       include Decidim::ResourceHelper
-      def calendar_resource(name)
-        %({
-          "id": "#{name}",
-          "title": "#{I18n.t(name, scope: "decidim.calendar.index.filters")}"
-        })
+
+      def available_events
+        @available_events ||= Calendar.events.select { |key, _item| key.safe_constantize }
       end
 
       def render_events(events)
