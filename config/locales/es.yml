@@ -39,12 +39,6 @@ es:
           external_event: Eventos externos
           meeting: Encuentros
           participatory_step: Procesos participativos
-        options:
-          day: Día
-          list: Lista
-          month: Mes
-          today: Hoy
-          week: Semana
         title: Calendario global
       menu:
         calendar: Calendario

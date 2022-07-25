@@ -3,34 +3,29 @@ import dayGridPlugin from "@fullcalendar/daygrid";
 import timeGridPlugin from "@fullcalendar/timegrid";
 import listPlugin from "@fullcalendar/list";
 import interactionPlugin from "@fullcalendar/interaction";
+import allLocales from "@fullcalendar/core/locales-all";
 
 const calendarEl = document.getElementById("calendar");
 const events = JSON.parse(calendarEl.dataset.events);
-const texts = JSON.parse(calendarEl.dataset.texts);
+let currentLocale = allLocales.find((lng) => lng.code === calendarEl.dataset.locale); 
 let hide = [];
 
 const calendar = new Calendar(calendarEl, {
   plugins: [interactionPlugin, dayGridPlugin, timeGridPlugin, listPlugin],
   defaultView: calendarEl.dataset.defaultView || "dayGridMonth",
-  locale: calendarEl.dataset.locale || "en",
+  locale: currentLocale,
   firstDay: calendarEl.dataset.firstDay || 1,
   headerToolbar: {
     left: "prev,next today",
     center: "title",
     right: calendarEl.dataset.views || "dayGridMonth,dayGridWeek,dayGridDay,listWeek"
   },
+  buttonIcons: false,
   eventTimeFormat: {
     hour: "2-digit",
     minute: "2-digit",
     hour12: Boolean(calendarEl.dataset.hour12),
     omitZeroMinute: false
-  },
-  buttonText: {
-    today: texts.today,
-    month: texts.month,
-    week: texts.week,
-    day: texts.day,
-    list: texts.list
   },
   events: events,
   eventClassNames: (info) => {

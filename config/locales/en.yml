@@ -45,12 +45,6 @@ en:
           external_event: External events
           meeting: Meetings
           participatory_step: Participatory Process
-        options:
-          day: Day
-          list: List
-          month: Month
-          today: Today
-          week: Week
         title: Global Calendar
       menu:
         calendar: Calendar

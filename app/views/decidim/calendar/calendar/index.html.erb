@@ -15,14 +15,7 @@
         views: Decidim::Calendar.calendar_options[:views],
         hour12: Decidim::Calendar.calendar_options[:hour12],
         firstDay: Decidim::Calendar.calendar_options[:firstDay],
-        defaultView: Decidim::Calendar.calendar_options[:defaultView],
-        texts: {
-          today: t("today", scope: "decidim.calendar.index.options"),
-          month: t("month", scope: "decidim.calendar.index.options"),
-          week: t("week", scope: "decidim.calendar.index.options"),
-          day: t("day", scope: "decidim.calendar.index.options"),
-          list: t("list", scope: "decidim.calendar.index.options")
-        }
+        defaultView: Decidim::Calendar.calendar_options[:defaultView]
       } %>
   </div>
 <% end %>

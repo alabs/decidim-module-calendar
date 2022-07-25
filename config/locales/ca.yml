@@ -39,12 +39,6 @@ ca:
           external_event: Esdeveniments externs
           meeting: Trobades
           participatory_step: Processos participatius
-        options:
-          day: Dia
-          list: Llista
-          month: Mes
-          today: Avui
-          week: Setmana
         title: Calendari global
       menu:
         calendar: Calendari
