@@ -38,11 +38,11 @@ namespace :decidim_calendar do
     end
 
     def calendar_path
-      @calendar_path ||= Pathname.new(calendar_gemspec.full_gem_path) if Gem.loaded_specs.has_key?(gem_name)
+      @calendar_path ||= Pathname.new(calendar_gemspec.full_gem_path) if Gem.loaded_specs.has_key?("decidim-calendar")
     end
 
     def calendar_gemspec
-      @calendar_gemspec ||= Gem.loaded_specs[gem_name]
+      @calendar_gemspec ||= Gem.loaded_specs["decidim-calendar"]
     end
 
     def rails_app_path
@@ -51,10 +51,6 @@ namespace :decidim_calendar do
 
     def system!(command)
       system("cd #{rails_app_path} && #{command}") || abort("\n== Command #{command} failed ==")
-    end
-
-    def gem_name
-      "decidim-calendar"
     end
   end
 end
