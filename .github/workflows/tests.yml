@@ -51,3 +51,9 @@ jobs:
         with:
           name: screenshots
           path: ./spec/decidim_dummy_app/tmp/screenshots
+
+      - run: bin/rails assets:precompile
+        name: Precompile assets
+        env:
+          RAILS_ENV: production
+          SECRET_KEY_BASE: dummy

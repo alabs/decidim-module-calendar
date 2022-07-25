@@ -40,9 +40,3 @@ jobs:
 
       - run: bundle exec erblint app/**/*.erb
         name: Lint ERB files
-
-      - run: bin/rails assets:precompile
-        name: Precompile assets
-        env:
-          RAILS_ENV: production
-          SECRET_KEY_BASE: dummy
