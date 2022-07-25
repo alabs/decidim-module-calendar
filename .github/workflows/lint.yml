@@ -44,5 +44,5 @@ jobs:
       - run: bin/rails assets:precompile
         name: Precompile assets
         env:
-          RAILS_ENV=production
-          SECRET_KEY_BASE=dummy
+          RAILS_ENV: production
+          SECRET_KEY_BASE: dummy
