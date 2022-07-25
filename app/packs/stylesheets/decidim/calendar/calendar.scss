@@ -1,0 +1,36 @@
+#calendar {
+  .fc-title {
+    margin-left: 5px;
+  }
+
+  .fc-scroller {
+    overflow-x: hidden !important;
+    overflow-y: hidden !important;
+  }
+
+  .fc-day-number {
+    display: block;
+    float: none;
+    text-align: center;
+  }
+
+  .fc-day-top {
+    background-color: #ededed;
+  }
+
+  .fc-today {
+    background-color: #fcf8e3 !important;
+  }
+
+  td {
+    border-color: #ccc !important;
+  }
+
+  .fc-today {
+    background-color: #f0f3b6;
+  }
+
+  .fc-content-skeleton td {
+    background-color: #fff;
+  }
+}

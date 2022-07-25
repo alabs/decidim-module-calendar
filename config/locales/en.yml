@@ -1,13 +1,16 @@
+---
 en:
+  activerecord:
+    models:
+      decidim/calendar:
+        one: Calendar
+        other: Calendars
   decidim:
     calendar:
       admin:
         actions:
           new_external_event: New external event
         external_events:
-          index:
-            title: External events
-            no_records_html: <p>No external events created.</p> <p>Start by adding a external event from the "<a href="%{new_set_link}">%{button_name}</a>" button.</p>
           create:
             invalid: Invalid external event
             success: External event created successfully
@@ -17,33 +20,39 @@ en:
             save: Save external event
           form:
             title: External event
+          index:
+            no_records_html: <p>No external events created.</p> <p>Start by adding
+              a external event from the "<a href="%{new_set_link}">%{button_name}</a>"
+              button.</p>
+            title: External events
           new:
-            title: New external event
             create: Create external event
+            title: New external event
           update:
             invalid: Error updating external event
             success: External event updated successfully
         models:
           external_events:
             fields:
-              title: Title
-              start_at: Start at
               end_at: End at
+              start_at: Start at
+              title: Title
               url: URL
       index:
-        title: Global Calendar
         filters:
           consultation: Consultations
           debate: Debates
           external_event: External events
           meeting: Meetings
           participatory_step: Participatory Process
+        options:
+          day: Day
+          list: List
+          month: Month
+          today: Today
+          week: Week
+        title: Global Calendar
       menu:
         calendar: Calendar
         gantt: Gantt Graph
         ical: Download ICAL
-  activerecord:
-    models:
-      decidim/calendar:
-        one: Calendar
-        other: Calendars

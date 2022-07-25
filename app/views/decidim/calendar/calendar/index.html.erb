@@ -1,5 +1,7 @@
 <% provide :meta_title, t("calendar.index.title", scope: "decidim") %>
 
+<%= render "calendar_css" %>
+
 <%= participatory_space_wrapper do %>
   <div class="row columns">
     <div class="calendar-filters button-group">
@@ -8,10 +10,22 @@
       <% end %>
     </div>
     <%= content_tag :div, "", id: "calendar", data: {
-        locale: I18n.locale, 
-        events: render_events(@events)
+        locale: I18n.locale,
+        events: render_events(@events),
+        views: Decidim::Calendar.calendar_options[:views],
+        hour12: Decidim::Calendar.calendar_options[:hour12],
+        firstDay: Decidim::Calendar.calendar_options[:firstDay],
+        defaultView: Decidim::Calendar.calendar_options[:defaultView],
+        texts: {
+          today: t("today", scope: "decidim.calendar.index.options"),
+          month: t("month", scope: "decidim.calendar.index.options"),
+          week: t("week", scope: "decidim.calendar.index.options"),
+          day: t("day", scope: "decidim.calendar.index.options"),
+          list: t("list", scope: "decidim.calendar.index.options")
+        }
       } %>
   </div>
 <% end %>
-<%= javascript_pack_tag "decidim_calendar" %>
+
 <%= stylesheet_pack_tag "decidim_calendar" %>
+<%= javascript_pack_tag "decidim_calendar" %>
