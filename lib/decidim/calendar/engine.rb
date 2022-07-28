@@ -23,7 +23,7 @@ module Decidim
 
       initializer "decidim_calendar.menu" do
         Decidim.menu :menu do |menu|
-          menu.add_item :calendar_menu,
+          menu.add_item :calendar,
                         I18n.t("menu.calendar", scope: "decidim.calendar"),
                         decidim_calendar.calendar_index_path,
                         position: 6.0,
