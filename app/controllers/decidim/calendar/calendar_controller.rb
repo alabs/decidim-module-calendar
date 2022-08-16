@@ -28,6 +28,10 @@ module Decidim
 
       private
 
+      # return nothing instead of NotImplementedError
+      # This should give some compatibility with external modules (ie. term customizer)
+      def current_participatory_space; end
+
       def current_participatory_space_manifest
         @current_participatory_space_manifest ||= Decidim.find_participatory_space_manifest(:calendar)
       end
