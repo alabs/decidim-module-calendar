@@ -9,6 +9,10 @@
       color: <%= item[:color] %>;
       background-color: transparent;
     }
-
+    .calendar-event-<%= item[:id] %> {
+      background-color: <%= item[:color] %>;
+      border-color: <%= item[:color] %>;
+      color: <%= item[:fontColor] %>;
+    }
   <% end %>
 </style>

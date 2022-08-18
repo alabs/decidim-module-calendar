@@ -40,7 +40,9 @@ const calendar = new Calendar(calendarEl, {
         html: `<span class="fc-title"><b>${info.event.title}</b> - ${info.event.extendedProps.subtitle}</span>`
       };
     }
-    return info.event.title;
+    return { 
+      html: `<span class="fc-title">${info.event.title}</span>`
+    };
   }
 });
 

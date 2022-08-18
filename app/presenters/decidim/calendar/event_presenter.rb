@@ -4,11 +4,15 @@ module Decidim
   module Calendar
     class EventPresenter < SimpleDelegator
       def color
-        Calendar.events.dig(__getobj__.class.name, :color)
+        Decidim::Calendar.events.dig(__getobj__.class.name, :color)
+      end
+
+      def font_color
+        Decidim::Calendar.events.dig(__getobj__.class.name, :fontColor)
       end
 
       def type
-        Calendar.events.dig(__getobj__.class.name, :id)
+        Decidim::Calendar.events.dig(__getobj__.class.name, :id)
       end
 
       def full_id
