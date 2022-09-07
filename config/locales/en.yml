@@ -2,7 +2,7 @@
 en:
   activerecord:
     models:
-      decidim/calendar:
+      decidim/calendar/dummy_calendar:
         one: Calendar
         other: Calendars
   decidim:

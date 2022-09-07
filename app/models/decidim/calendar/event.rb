@@ -24,11 +24,15 @@ module Decidim
 
         def collect_models
           models.collect do |model|
-            if model.has_attribute? :decidim_component_id
-              yield model.includes(component: :participatory_space)
-            else
-              yield model
-            end
+            query = model
+            query = query.includes(component: :participatory_space) if query.has_attribute? :decidim_component_id
+            # published if responds to it
+            query = query.where.not(published_at: nil) if query.has_attribute? :published_at
+            # not moderated
+            query = query.not_hidden if query.respond_to? :not_hidden
+            # not withdrawn
+            query = query.except_withdrawn if query.respond_to? :except_withdrawn
+            yield query
           end
         end
       end

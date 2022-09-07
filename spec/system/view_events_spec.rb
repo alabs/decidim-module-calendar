@@ -7,7 +7,8 @@ describe "User interact with the calendar", type: :system do
   let!(:user) { create :user, :confirmed, organization: organization }
   let!(:participatory_process) { create :participatory_process, :with_steps, :active, :published, organization: organization }
   let!(:component) { create :meeting_component, participatory_space: participatory_process }
-  let!(:meeting) { create :meeting, component: component }
+  let!(:meeting) { create :meeting, :published, component: component }
+  let!(:unpublished_meeting) { create :meeting, component: component }
   let!(:external_event) { create :external_event, organization: organization }
 
   before do
@@ -25,6 +26,7 @@ describe "User interact with the calendar", type: :system do
 
     it "show a item in calendar" do
       expect(page).to have_i18n_content(meeting.title)
+      expect(page).not_to have_i18n_content(unpublished_meeting.title)
     end
   end
 

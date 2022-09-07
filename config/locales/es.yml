@@ -1,5 +1,10 @@
 ---
 es:
+  activerecord:
+    models:
+      decidim/calendar/dummy_calendar:
+        one: Calendario
+        other: Calendarios
   decidim:
     calendar:
       admin:

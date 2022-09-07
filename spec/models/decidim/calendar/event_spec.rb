@@ -11,7 +11,11 @@ module Decidim
       let!(:event) { create(:external_event, organization: organization) }
       let!(:participatory_process) { create(:participatory_process, organization: organization) }
       let!(:component) { create(:meeting_component, participatory_space: participatory_process) }
-      let!(:meeting) { create(:meeting, component: component) }
+      let!(:meeting) { create(:meeting, :published, component: component) }
+      let!(:unpublished_meeting) { create(:meeting, component: component) }
+      let!(:moderated_meeting) { create(:meeting, :published, component: component) }
+      let!(:moderation) { create(:moderation, :hidden, reportable: moderated_meeting, participatory_space: participatory_process) }
+      let!(:withdrawn_meeting) { create(:meeting, :published, :withdrawn, component: component) }
       let!(:another_event) { create(:external_event) }
       let!(:another_meeting) { create(:meeting) }
 
@@ -24,10 +28,14 @@ module Decidim
       end
 
       it "returns events" do
-        expect(subject.all(organization)).to include(event)
-        expect(subject.all(organization)).not_to include(another_event)
-        expect(subject.all(organization)).to include(meeting)
-        expect(subject.all(organization)).not_to include(another_meeting)
+        events = subject.all(organization)
+        expect(events).to include(event)
+        expect(events).not_to include(another_event)
+        expect(events).to include(meeting)
+        expect(events).not_to include(another_meeting)
+        expect(events).not_to include(unpublished_meeting)
+        expect(events).not_to include(moderated_meeting)
+        expect(events).not_to include(withdrawn_meeting)
       end
 
       it "returns a presenter" do
@@ -60,11 +68,12 @@ module Decidim
         end
 
         it "returns only available events" do
-          expect(subject.all(organization)).to eq([meeting])
+          events = subject.all(organization)
+          expect(events).to eq([meeting])
         end
       end
 
-      context "when a class is not configure" do
+      context "when a class is not configured" do
         let(:custom_config) do
           {
             "Decidim::Meetings::Meeting" => {
