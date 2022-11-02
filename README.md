@@ -22,7 +22,7 @@ calendar view form.
 Edit the Gemfile and add this lines:
 
 ```ruby
-gem "decidim-calendar"
+gem "decidim-calendar", git: "https://github.com/openpoke/decidim-module-calendar"
 ```
 
 Run this rake tasks:
