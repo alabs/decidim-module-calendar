@@ -6,11 +6,9 @@ module Decidim
       include Decidim::ApplicationHelper
       include Decidim::TranslationsHelper
       include Decidim::ResourceHelper
-      def calendar_resource(name)
-        %({
-          "id": "#{name}",
-          "title": "#{I18n.t(name, scope: "decidim.calendar.index.filters")}"
-        })
+
+      def available_events
+        @available_events ||= Calendar.events.select { |key, _item| key.safe_constantize }
       end
 
       def render_events(events)
@@ -22,22 +20,24 @@ module Decidim
           title: translated_attribute(event.full_title),
           start: (event.start.strftime("%FT%R") unless event.start.nil?),
           end: (event.finish.strftime("%FT%R") unless event.finish.nil?),
-          color: event.color,
+          backgroundColor: event.color,
+          textColor: event.font_color,
           url: event.link,
           resourceId: event.type,
           allDay: event.all_day?,
+          classNames: ["calendar-event-#{event.type}"],
           subtitle: (translated_attribute(event.subtitle) unless event.subtitle.empty?)
         }.compact
       end
 
       def participatory_gantt(event)
-        %({
-          "id": "#{event.full_id}",
-          "name": "#{translated_attribute event.full_title} - #{translated_attribute event.subtitle}",
-          "start": "#{event.start.strftime("%FT%R")}",
-          "dependencies": "#{event.parent}",
-          "end": "#{event.finish.strftime("%FT%R")}"
-        })
+        {
+          id: event.full_id,
+          name: "#{translated_attribute event.full_title} - #{translated_attribute event.subtitle}",
+          start: event.start.strftime("%FT%R"),
+          dependencies: event.parent,
+          end: event.finish.strftime("%FT%R")
+        }
       end
     end
   end

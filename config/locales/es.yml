@@ -1,13 +1,16 @@
+---
 es:
+  activerecord:
+    models:
+      decidim/calendar/dummy_calendar:
+        one: Calendario
+        other: Calendarios
   decidim:
     calendar:
       admin:
         actions:
           new_external_event: Nuevo evento externo
         external_events:
-          index:
-            title: Eventos externos
-            no_records_html: <p>No se han creado eventos externos.</p> <p>Comienza añadiendo un evento externo del botón "<a href="%{new_set_link}">%{button_name}</a>".</p>
           create:
             invalid: Evento externo inválido
             success: Evento externo creado con éxito
@@ -17,27 +20,31 @@ es:
             save: Guardar evento externo
           form:
             title: Evento externo
+          index:
+            no_records_html: <p>No se han creado eventos externos.</p> <p>Comienza
+              añadiendo un evento externo del botón "<a href="%{new_set_link}">%{button_name}</a>".</p>
+            title: Eventos externos
           new:
-            title: Nuevo evento externo
             create: Crear evento externo
+            title: Nuevo evento externo
           update:
             invalid: Error al actualizar evento externo
             success: Evento externo actualizado correctamente
         models:
           external_events:
             fields:
-              title: Título
-              start_at: Iniciar en
               end_at: Terminan en
+              start_at: Iniciar en
+              title: Título
               url: URL
       index:
-        title: Calendario global
         filters:
           consultation: Consultas
           debate: Debates
           external_event: Eventos externos
           meeting: Encuentros
           participatory_step: Procesos participativos
+        title: Calendario global
       menu:
         calendar: Calendario
         gantt: Gráfico de Gantt

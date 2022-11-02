@@ -14,11 +14,12 @@ module Decidim
 
       initializer "decidim_calendar.admin_menu" do
         Decidim.menu :admin_menu do |menu|
-          menu.item I18n.t("menu.calendar", scope: "decidim.calendar"),
-                    decidim_admin_calendar.external_events_path,
-                    icon_name: "calendar",
-                    position: 5.5,
-                    active: :inclusive
+          menu.add_item :calendar,
+                        I18n.t("menu.calendar", scope: "decidim.calendar"),
+                        decidim_admin_calendar.external_events_path,
+                        icon_name: "calendar",
+                        position: 5.5,
+                        active: :inclusive
         end
       end
 

@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "manage external events" do
+describe "manage external events", type: :system do
   let(:organization) { create :organization }
   let(:user) { create(:user, :admin, :confirmed, organization: organization) }
 

@@ -1,0 +1,9 @@
+---
+
+base_locale: en
+locales: [en]
+
+data:
+  external:
+    - "<%= %x[bundle info decidim-participatory_processes --path].chomp %>/config/locales/%{locale}.yml"
+

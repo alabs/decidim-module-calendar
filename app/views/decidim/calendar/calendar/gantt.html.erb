@@ -1,22 +1,10 @@
-<% provide :meta_title, t("calendar.menu.gantt", scope: "decidim") %>
+<% add_decidim_page_title(t("calendar.menu.gantt", scope: "decidim")) %>
+
 <%= participatory_space_wrapper do %>
   <div class="row columns">
-    <div id="gantt"></div>
+    <%= content_tag :div, "", id: "gantt", data: { tasks: tasks } %>
   </div>
 <% end %>
-<%= javascript_include_tag "decidim/calendar/gantt" %>
-<%= stylesheet_link_tag "decidim/calendar/gantt" %>
 
-<script charset="utf-8">
-  var tasks = [
-  <% @events.each do |p| %>
-    <%= participatory_gantt(p).html_safe %>
-    <%= "," unless p == @events.last %>
-  <% end %>
-]
-var gantt = new Gantt("#gantt", tasks, {
-    view_modes: ['Quarter Day', 'Half Day', 'Day', 'Week', 'Month'],
-    view_mode: 'Month',
-    custom_popup_html: null
-});
-</script>
+<%= javascript_pack_tag "decidim_calendar_gantt" %>
+<%= stylesheet_pack_tag "decidim_calendar_gantt" %>

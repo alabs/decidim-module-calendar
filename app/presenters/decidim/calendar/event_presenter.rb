@@ -4,33 +4,15 @@ module Decidim
   module Calendar
     class EventPresenter < SimpleDelegator
       def color
-        case __getobj__.class.name
-        when "Decidim::ParticipatoryProcessStep"
-          "#3A4A9F"
-        when "Decidim::Meetings::Meeting"
-          "#ed1c24"
-        when "Decidim::Calendar::ExternalEvent"
-          "#ed650b"
-        when "Decidim::Debates::Debate"
-          "#099329"
-        when "Decidim::Consultation"
-          "#92278f"
-        end
+        Decidim::Calendar.events.dig(__getobj__.class.name, :color)
+      end
+
+      def font_color
+        Decidim::Calendar.events.dig(__getobj__.class.name, :fontColor)
       end
 
       def type
-        case __getobj__.class.name
-        when "Decidim::ParticipatoryProcessStep"
-          "participatory_step"
-        when "Decidim::Meetings::Meeting"
-          "meeting"
-        when "Decidim::Calendar::ExternalEvent"
-          "external_event"
-        when "Decidim::Debates::Debate"
-          "debate"
-        when "Decidim::Consultation"
-          "consultation"
-        end
+        Decidim::Calendar.events.dig(__getobj__.class.name, :id)
       end
 
       def full_id

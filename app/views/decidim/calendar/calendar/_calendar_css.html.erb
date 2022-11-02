@@ -1,0 +1,18 @@
+<style type="text/css">
+  <% available_events.each do |_key, item| %>
+    .calendar-filters .button.<%= item[:id] %> {
+      background-color: <%= item[:color] %>;
+      border-color: <%= item[:color] %>;
+      color: <%= item[:fontColor] %>;
+    }
+    .calendar-filters .button.<%= item[:id] %>.hollow {
+      color: <%= item[:color] %>;
+      background-color: transparent;
+    }
+    .calendar-event-<%= item[:id] %> {
+      background-color: <%= item[:color] %>;
+      border-color: <%= item[:color] %>;
+      color: <%= item[:fontColor] %>;
+    }
+  <% end %>
+</style>
