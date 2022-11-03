@@ -7,7 +7,9 @@ describe "User interact with the calendar", type: :system do
   let!(:user) { create :user, :confirmed, organization: organization }
   let!(:participatory_process) { create :participatory_process, :with_steps, :active, :published, organization: organization }
   let!(:component) { create :meeting_component, participatory_space: participatory_process }
-  let!(:meeting) { create :meeting, component: component }
+  let!(:meeting) { create :meeting, :published, component: component }
+  let!(:unpublished_meeting) { create :meeting, component: component }
+  let!(:external_event) { create :external_event, organization: organization }
 
   before do
     switch_to_host(organization.host)
@@ -19,11 +21,12 @@ describe "User interact with the calendar", type: :system do
     end
 
     it "show the calendar" do
-      expect(page).to have_i18n_content("calendar")
+      expect(page).to have_i18n_content("CALENDAR")
     end
 
     it "show a item in calendar" do
       expect(page).to have_i18n_content(meeting.title)
+      expect(page).not_to have_i18n_content(unpublished_meeting.title)
     end
   end
 
@@ -46,6 +49,8 @@ describe "User interact with the calendar", type: :system do
       expect(page.response_headers["Content-Type"]).to match "text/calendar"
       expect(page.response_headers["Content-Disposition"]).to match(/^attachment/)
       expect(page).to have_i18n_content(participatory_process.title)
+      expect(page).to have_i18n_content(meeting.title)
+      expect(page).to have_i18n_content(external_event.title)
     end
   end
 end

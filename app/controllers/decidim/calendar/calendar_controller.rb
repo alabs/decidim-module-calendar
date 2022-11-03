@@ -4,12 +4,14 @@ module Decidim
   module Calendar
     class CalendarController < Decidim::Calendar::ApplicationController
       helper Decidim::Calendar::CalendarHelper
+      include Decidim::Calendar::CalendarHelper
       include ParticipatorySpaceContext
       layout "calendar"
+
+      helper_method :tasks
+
       def index
         @events = Event.all(current_organization)
-        @resources = %w(debate external_event meeting participatory_step)
-        @resources = @resources << "consultation" if defined? Decidim::Consultation
       end
 
       def gantt
@@ -20,14 +22,22 @@ module Decidim
 
       def ical
         filename = "#{current_organization.name.parameterize}-calendar"
-        response.headers["Content-Disposition"] = 'attachment; filename="' + filename + '.ical"'
+        response.headers["Content-Disposition"] = "attachment; filename=#{filename}.ical"
         render plain: GeneralCalendar.for(current_organization), content_type: "text/calendar"
       end
 
       private
 
+      # return nothing instead of NotImplementedError
+      # This should give some compatibility with external modules (ie. term customizer)
+      def current_participatory_space; end
+
       def current_participatory_space_manifest
         @current_participatory_space_manifest ||= Decidim.find_participatory_space_manifest(:calendar)
+      end
+
+      def tasks
+        @tasks ||= @events.map { |space| participatory_gantt(space) }
       end
     end
   end
