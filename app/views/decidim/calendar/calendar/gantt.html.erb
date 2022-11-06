@@ -1,5 +1,7 @@
 <% add_decidim_page_title(t("calendar.menu.gantt", scope: "decidim")) %>
 
+<%= stylesheet_pack_tag "decidim_calendar_gantt" %>
+
 <%= participatory_space_wrapper do %>
   <div class="row columns">
     <%= content_tag :div, "", id: "gantt", data: { tasks: tasks } %>
@@ -7,4 +9,3 @@
 <% end %>
 
 <%= javascript_pack_tag "decidim_calendar_gantt" %>
-<%= stylesheet_pack_tag "decidim_calendar_gantt" %>
