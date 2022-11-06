@@ -17,7 +17,6 @@ const updateHash = (date, type) => {
     dates += `&view=${type}`;
   }
   let filters = $(".calendar-filters .cal-filter:not(.hollow)").map((_, el) => el.id).toArray();
-  console.log(filters);
   window.location.hash = `${dates}&filters=${filters.join(",")}`
 };
 
