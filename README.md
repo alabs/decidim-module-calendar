@@ -84,7 +84,50 @@ Decidim::Calendar.configure do |config|
     # use "true" to get a am/pm format
     hour12: false,
     # several of: dayGridMonth,dayGridWeek,dayGridDay,listWeek,listMonth,listYear
-    views: "dayGridMonth,dayGridWeek,dayGridDay,listWeek"
+    views: "dayGridMonth,dayGridWeek,dayGridDay,listWeek",
+    # Forces to open all event links in a new window
+    openInNewWindow: true
+  }
+end
+```
+
+### Advanced configuration
+
+You can also make use of your custom event models. For that you only need to ensure that these propoerties are returned by the module:
+
+- `id`: the unique ID of the event
+- `title`: the title of the event
+- `start_date`: the start date of the event
+- `end_date`: the end date of the event
+- `subtitle`: (optional) the subtitle of the event
+- `url`: the url of the event
+
+By default the model is queried using the default scope of the model, you can customized creating a new object and modifiying `default_scope`:
+
+```ruby
+# /app/modesl/recent_meetings
+class RecentMeetings < Decidim::Meetings::Meeting
+  default_scope -> { where("start_time > ?", 1.years.ago) }
+
+  # You can customize the title for instance
+  def title
+    "Recent Event: #{super}"
+  end
+end
+```
+
+Then, in your initializer:
+
+```ruby
+Decidim::Calendar.configure do |config|
+  config.events = {
+...,
+    "RecentMeetings" => {
+      color: "#ed1c24",
+      fontColor: "#fff",
+      id: :recent_meeting
+    },
+...
   }
 end
 ```

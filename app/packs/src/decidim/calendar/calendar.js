@@ -126,15 +126,6 @@ const calendar = new Calendar(calendarEl, {
 $(() => {
   calendar.render();
 
-  // Initial filter values from hash
-  let filters = getInitialFilters();
-  if (filters !== false) {
-    $(".cal-filter").each((_, el) => {
-      if (!filters.includes(el.id)) {
-        $(el).addClass("hollow");
-      }
-    });
-  }
   $(".cal-filter").on("click", (evt) => {
     evt.preventDefault();
     const $this = $(evt.currentTarget);
@@ -148,4 +139,14 @@ $(() => {
     updateHash(calendar.getDate());
     calendar.render()
   });
+
+  // Initial filter values from hash
+  let filters = getInitialFilters();
+  if (filters !== false) {
+    $(".cal-filter").each((_, el) => {
+      if (!filters.includes(el.id)) {
+        $(el).click();
+      }
+    });
+  }
 });
