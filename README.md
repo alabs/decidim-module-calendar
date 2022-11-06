@@ -106,7 +106,7 @@ By default the model is queried using the default scope of the model.
 You can customized the amount of rows extracted by creating a new object and defining a `default_scope`:
 
 ```ruby
-# /app/modesl/recent_meetings
+# /app/models/recent_meetings
 class RecentMeetings < Decidim::Meetings::Meeting
   default_scope -> { where("start_time > ?", 1.years.ago) }
 
