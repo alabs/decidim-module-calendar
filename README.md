@@ -97,12 +97,13 @@ You can also make use of your custom event models. For that you only need to ens
 
 - `id`: the unique ID of the event
 - `title`: the title of the event
-- `start_date`: the start date of the event
-- `end_date`: the end date of the event
+- `start_date`: the start date of the event (can also be named `start_time`)
+- `end_date`: the end date of the event (can also be named `end_time`)
 - `subtitle`: (optional) the subtitle of the event
-- `url`: the url of the event
+- `url`: (optional) the url of the event
 
-By default the model is queried using the default scope of the model, you can customized creating a new object and modifiying `default_scope`:
+By default the model is queried using the default scope of the model.
+You can customized the amount of rows extracted by creating a new object and defining a `default_scope`:
 
 ```ruby
 # /app/modesl/recent_meetings
