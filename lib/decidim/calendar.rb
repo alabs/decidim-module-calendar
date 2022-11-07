@@ -51,7 +51,8 @@ module Decidim
         # use "true" to get a am/pm format
         hour12: false,
         # several of: dayGridMonth,dayGridWeek,dayGridDay,listWeek,listMonth,listYear
-        views: "dayGridMonth,dayGridWeek,dayGridDay,listWeek"
+        views: "dayGridMonth,dayGridWeek,dayGridDay,listWeek",
+        openInNewWindow: true
       }
     end
   end
