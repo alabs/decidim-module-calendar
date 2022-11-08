@@ -34,12 +34,16 @@ module Decidim
       def link
         return url if respond_to?(:url)
 
-        @link ||= case __getobj__.class.name
-                  when "Decidim::ParticipatoryProcessStep"
-                    Decidim::ResourceLocatorPresenter.new(participatory_process).url
-                  else
-                    Decidim::ResourceLocatorPresenter.new(__getobj__).url
-                  end
+        @link ||= begin
+          case __getobj__.class.name
+          when "Decidim::ParticipatoryProcessStep"
+            Decidim::ResourceLocatorPresenter.new(participatory_process).url
+          else
+            Decidim::ResourceLocatorPresenter.new(__getobj__).url
+          end
+        rescue NoMethodError
+          ""
+        end
       end
 
       def start

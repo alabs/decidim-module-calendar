@@ -1,5 +1,6 @@
 <% add_decidim_page_title(t("calendar.index.title", scope: "decidim")) %>
 
+<%= stylesheet_pack_tag "decidim_calendar" %>
 <%= render "calendar_css" %>
 
 <%= participatory_space_wrapper do %>
@@ -14,11 +15,11 @@
         events: render_events(@events),
         views: Decidim::Calendar.calendar_options[:views],
         hour12: Decidim::Calendar.calendar_options[:hour12],
-        firstDay: Decidim::Calendar.calendar_options[:firstDay],
-        defaultView: Decidim::Calendar.calendar_options[:defaultView]
+        firstday: Decidim::Calendar.calendar_options[:firstDay],
+        defaultview: Decidim::Calendar.calendar_options[:defaultView],
+        openinnewwindow: Decidim::Calendar.calendar_options[:openInNewWindow]
       } %>
   </div>
 <% end %>
 
-<%= stylesheet_pack_tag "decidim_calendar" %>
 <%= javascript_pack_tag "decidim_calendar" %>
