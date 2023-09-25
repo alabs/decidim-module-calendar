@@ -3,7 +3,7 @@
 module Decidim
   module Calendar
     module Admin
-      class DestroyExternalEvent < Rectify::Command
+      class DestroyExternalEvent < Decidim::Command
         def initialize(event)
           @event = event
         end

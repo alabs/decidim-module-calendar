@@ -145,7 +145,7 @@ Clone this repository or fork and run:
 
 ```bash
 bundle install
-rake development_app
+bundle exec rake development_app
 ```
 
 ### Localization

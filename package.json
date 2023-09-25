@@ -1,6 +1,6 @@
 {
   "name": "decidim-calendar",
-  "version": "0.26-dev",
+  "version": "0.27-dev",
   "license": "AGPL-3.0",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -170,17 +170,17 @@
     }
   },
   "dependencies": {
-    "@fullcalendar/core": "^5.11.0",
-    "@fullcalendar/daygrid": "^5.11.0",
-    "@fullcalendar/interaction": "^5.11.0",
-    "@fullcalendar/list": "^5.11.0",
-    "@fullcalendar/timegrid": "^5.11.0",
+    "@fullcalendar/core": "^5.11.3",
+    "@fullcalendar/daygrid": "^5.11.3",
+    "@fullcalendar/interaction": "^5.11.3",
+    "@fullcalendar/list": "^5.11.3",
+    "@fullcalendar/timegrid": "^5.11.3",
     "frappe-gantt": "^0.6.1"
   },
   "devDependencies": {
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.2.0",
-    "eslint-config-standard": "^11.0.0",
+    "eslint-config-standard": "^12.0.0",
     "eslint-plugin-import": "^2.22.0",
     "stylelint": "13.11.0"
   }

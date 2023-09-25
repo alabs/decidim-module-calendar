@@ -3,7 +3,7 @@
 module Decidim
   module Calendar
     module Admin
-      class UpdateExternalEvent < Rectify::Command
+      class UpdateExternalEvent < Decidim::Command
         def initialize(external_event, form)
           @external_event = external_event
           @form = form

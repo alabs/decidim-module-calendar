@@ -22,7 +22,7 @@ module Decidim
       end
 
       context "when start_at is after start_at" do
-        let(:event) { build(:external_event, start_at: Time.zone.now, end_at: Time.zone.now - 2.days) }
+        let(:event) { build(:external_event, start_at: Time.zone.now, end_at: 2.days.ago) }
 
         it { is_expected.not_to be_valid }
       end
