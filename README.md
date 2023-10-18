@@ -1,13 +1,16 @@
 # Decidim::Calendar
 
-![Build](https://github.com/alabs/decidim-module-calendar/workflows/Ruby/badge.svg)
-[![Coverage](https://img.shields.io/codeclimate/coverage/alabs/decidim-module-calendar.svg)](https://codeclimate.com/github/alabs/decidim-module-calendar)
-[![Maintainability](https://img.shields.io/codeclimate/maintainability/alabs/decidim-module-calendar.svg)](https://codeclimate.com/github/alabs/decidim-module-calendar/maintainability)
+[![[CI] Lint](https://github.com/decidim-ice/decidim-module-calendar/actions/workflows/lint.yml/badge.svg)](https://github.com/decidim-ice/decidim-module-calendar/actions/workflows/lint.yml)
+[![[CI] Test](https://github.com/decidim-ice/decidim-module-calendar/actions/workflows/tests.yml/badge.svg)](https://github.com/decidim-ice/decidim-module-calendar/actions/workflows/tests.yml)
+[![Coverage](https://img.shields.io/codeclimate/coverage/decidim-ice/decidim-module-calendar.svg)](https://codeclimate.com/github/decidim-ice/decidim-module-calendar)
+[![Maintainability](https://api.codeclimate.com/v1/badges/56f36de15f3cb6836b50/maintainability)](https://codeclimate.com/github/decidim-ice/decidim-module-calendar/maintainability)
 
 This [Decidim](https://github.com/decidim/decidim) module enable a multitenant
 global calendar for Consultations, Debates, External Events, Meetings and
 Participatory Processes. Giving a snapshot of all current activities in a
 calendar view form.
+
+> **NOTE** This is a maintained fork of the original [ALabs](https://github.com/alabs/decidim-module-calendar) work.
 
 ![decidim-calendar](docs/decidim-calendar.png)
 
