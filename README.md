@@ -3,7 +3,7 @@
 [![[CI] Lint](https://github.com/decidim-ice/decidim-module-calendar/actions/workflows/lint.yml/badge.svg)](https://github.com/decidim-ice/decidim-module-calendar/actions/workflows/lint.yml)
 [![[CI] Test](https://github.com/decidim-ice/decidim-module-calendar/actions/workflows/tests.yml/badge.svg)](https://github.com/decidim-ice/decidim-module-calendar/actions/workflows/tests.yml)
 [![Coverage](https://img.shields.io/codeclimate/coverage/decidim-ice/decidim-module-calendar.svg)](https://codeclimate.com/github/decidim-ice/decidim-module-calendar)
-[![Maintainability](https://api.codeclimate.com/v1/badges/56f36de15f3cb6836b50/maintainability)](https://codeclimate.com/github/decidim-ice/decidim-module-calendar/maintainability)
+[![Maintainability](https://api.codeclimate.com/v1/badges/022d79a85574a5f3dc72/maintainability)](https://codeclimate.com/github/decidim-ice/decidim-module-calendar/maintainability)
 
 This [Decidim](https://github.com/decidim/decidim) module enable a multitenant
 global calendar for Consultations, Debates, External Events, Meetings and
@@ -19,6 +19,7 @@ calendar view form.
 - Display past and future events in from of calendar and agenda.
 - Display gantt graph of participatory processes
 - Download ICAL for import
+- Customize colors and event sources
 
 ## Instalation
 
