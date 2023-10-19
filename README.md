@@ -2,7 +2,7 @@
 
 [![[CI] Lint](https://github.com/decidim-ice/decidim-module-calendar/actions/workflows/lint.yml/badge.svg)](https://github.com/decidim-ice/decidim-module-calendar/actions/workflows/lint.yml)
 [![[CI] Test](https://github.com/decidim-ice/decidim-module-calendar/actions/workflows/tests.yml/badge.svg)](https://github.com/decidim-ice/decidim-module-calendar/actions/workflows/tests.yml)
-[![Coverage](https://img.shields.io/codeclimate/coverage/decidim-ice/decidim-module-calendar.svg)](https://codeclimate.com/github/decidim-ice/decidim-module-calendar)
+[![codecov](https://codecov.io/gh/decidim-ice/decidim-module-calendar/graph/badge.svg?token=PGbY5VEeQE)](https://codecov.io/gh/decidim-ice/decidim-module-calendar)
 [![Maintainability](https://api.codeclimate.com/v1/badges/022d79a85574a5f3dc72/maintainability)](https://codeclimate.com/github/decidim-ice/decidim-module-calendar/maintainability)
 
 This [Decidim](https://github.com/decidim/decidim) module enable a multitenant

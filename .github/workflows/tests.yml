@@ -9,7 +9,6 @@ on:
 env:
   RUBY_VERSION: 3.0.6
   NODE_VERSION: 16.9.1
-  CODECOV: "true"
 
 jobs:
   test-report:
@@ -41,7 +40,7 @@ jobs:
           ruby-version: ${{ env.RUBY_VERSION }}
           bundler-cache: true
 
-      - uses: actions/setup-node@master
+      - uses: actions/setup-node@v3
         with:
           node-version: ${{ env.NODE_VERSION }}
 
@@ -58,14 +57,16 @@ jobs:
 
       - name: Run RSpec
         run: bundle exec rspec
+        env:
+          SIMPLECOV: 1
+          CI: 1
+
+      - uses: actions/upload-artifact@v3
+        with:
+          name: screenshots
+          path: ./spec/decidim_dummy_app/tmp/screenshots
 
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v3
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-
-      - uses: actions/upload-artifact@v2-preview
-        if: always()
-        with:
-          name: screenshots
-          path: ./spec/decidim_dummy_app/tmp/screenshots
