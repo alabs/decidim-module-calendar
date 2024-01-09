@@ -25,7 +25,7 @@ const getInitialDate = () => {
   let year = today.getFullYear();
   let month = today.getMonth();
   let day = today.getDate();
-  window.location.hash.substr(1).split("&").forEach((v) => {
+  window.location.hash.substring(1).split("&").forEach((v) => {
     if (v.match("^year")) {
       year = v.substring(5);
     }
@@ -41,17 +41,23 @@ const getInitialDate = () => {
 
 const getInitialView = () => {
   let view = calendarEl.dataset.defaultview || "dayGridMonth"
-  window.location.hash.substr(1).split("&").forEach((v) => {
-    if (v.match("^view")) {
-      view = v.substring(5);
-    }
-  });
+  const isMobile = window.innerWidth < 576;
+
+  if (isMobile) {
+    view = "dayGridWeek"; 
+  } else {
+    window.location.hash.substring(1).split("&").forEach((v) => {
+      if (v.match("^view")) {
+        view = v.substring(5);
+      }
+    });
+  }
   return view;
 };
 
 const getInitialFilters = () => {
   let filters = false;
-  window.location.hash.substr(1).split("&").forEach((v) => {
+  window.location.hash.substring(1).split("&").forEach((v) => {
     if (v.match("^filters")) {
       filters = v.substring(8).split(",");
     }
@@ -62,6 +68,7 @@ const getInitialFilters = () => {
 const calendar = new Calendar(calendarEl, {
   plugins: [interactionPlugin, dayGridPlugin, timeGridPlugin, listPlugin],
   initialView: getInitialView(),
+  dayMaxEvents: 3,
   locale: currentLocale,
   firstDay: calendarEl.dataset.hasOwnProperty("firstday") // eslint-disable-line no-prototype-builtins
     ? parseInt(calendarEl.dataset.firstday)
@@ -87,13 +94,14 @@ const calendar = new Calendar(calendarEl, {
     return [];
   },
   eventContent: (info) => {
-    if ("subtitle" in info.event.extendedProps) {
-      return { 
-        html: `<span class="fc-title"><b>${info.event.title}</b> - ${info.event.extendedProps.subtitle}</span>`
-      };
-    }
-    return { 
-      html: `<span class="fc-title">${info.event.title}</span>`
+    const subtitle = "subtitle" in info.event.extendedProps
+      ? ` - ${info.event.extendedProps.subtitle}`
+      : "";
+    const hour = "hour" in info.event.extendedProps
+      ? `${info.event.extendedProps.hour}  `
+      : "";
+    return {
+      html: `<span class="fc-title" >${hour}<b>${info.event.title}</b>${subtitle}</span>`
     };
   },
   eventClick: (info) => {

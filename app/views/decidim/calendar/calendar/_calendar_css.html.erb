@@ -14,5 +14,34 @@
       border-color: <%= item[:color] %>;
       color: <%= item[:fontColor] %>;
     }
+
+    .calendar-event-<%= item[:id] %>.has-hour {
+      background-color: transparent;
+      border-color: transparent;
+      color: inherit;
+    }
+
+    .calendar-event-<%= item[:id] %>.has-hour::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 8px;
+      height: 8px;
+      background-color: <%= item[:color] %>;
+      border-radius: 50%;
+    }
+
+    div.fc-scroller.fc-scroller-liquid .calendar-event-<%= item[:id] %>.has-hour::before {
+      display: none;
+    }
+
+    .button.calendar {
+      padding-top: 0.25rem;
+      padding-bottom: 0.25rem;
+      font-size: 1rem;
+      margin: 0px 1px 1px 0px;
+    }
   <% end %>
 </style>

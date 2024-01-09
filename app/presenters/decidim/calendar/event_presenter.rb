@@ -95,6 +95,12 @@ module Decidim
 
         (start.to_date..finish.to_date).count > 1
       end
+
+      def hour
+        return nil if start.is_a?(Date) || all_day?
+
+        start.strftime("%H:%M")
+      end
     end
   end
 end

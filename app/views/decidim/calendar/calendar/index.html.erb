@@ -5,6 +5,9 @@
 
 <%= participatory_space_wrapper do %>
   <div class="row columns">
+      <%= render partial: "decidim/meetings/calendar_modal", locals: {
+             path:  calendar_ical_path
+           } %>
     <div class="calendar-filters button-group">
       <% available_events.each do |_key,item| %>
         <button class="button tiny cal-filter <%= item[:id] %>" id="<%= item[:id] %>"><%= I18n.t(item[:id], scope: "decidim.calendar.index.filters") %></button>

@@ -20,12 +20,13 @@ module Decidim
           title: translated_attribute(event.full_title),
           start: (event.start.strftime("%FT%R") unless event.start.nil?),
           end: (event.finish.strftime("%FT%R") unless event.finish.nil?),
+          hour: event.hour,
           backgroundColor: event.color,
           textColor: event.font_color,
           url: event.link,
           resourceId: event.type,
           allDay: event.all_day?,
-          classNames: ["calendar-event-#{event.type}"],
+          classNames: ["calendar-event-#{event.type}#{event.hour ? " has-hour" : " all-day"}"],
           subtitle: (translated_attribute(event.subtitle) unless event.subtitle.empty?)
         }.compact
       end

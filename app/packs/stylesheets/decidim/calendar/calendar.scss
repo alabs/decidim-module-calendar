@@ -1,6 +1,6 @@
 #calendar {
   .fc-title {
-    margin-left: 5px;
+    margin-left: 10px;
   }
 
   .fc-scroller {
@@ -32,5 +32,22 @@
 
   .fc-content-skeleton td {
     background-color: #fff;
+  }
+
+  $small: 576px;
+
+  @media screen and (max-width: $small) {
+    .fc-button {
+      padding-top: .25rem;
+      padding-bottom: .25rem;
+      font-size: .6rem;
+      margin: 0 1px 1px 0;
+    }
+
+    .fc-toolbar-title {
+      font-size: 1rem;
+      inline-size: 20vw;
+      overflow-wrap: break-word;
+    }
   }
 }
