@@ -3,11 +3,11 @@
 require "spec_helper"
 
 describe "participatory space", type: :view do
-  let(:organization) { create :organization }
+  let(:organization) { create(:organization) }
   let(:manifest) { Decidim.find_participatory_space_manifest(:calendar) }
 
   it "respond to participatory_spaces with an empty set" do
-    expect(manifest.participatory_spaces.call(organization)).to be_a_kind_of(ActiveRecord::Relation)
+    expect(manifest.participatory_spaces.call(organization)).to be_a(ActiveRecord::Relation)
     expect(manifest.participatory_spaces.call(organization)).to be_blank
   end
 

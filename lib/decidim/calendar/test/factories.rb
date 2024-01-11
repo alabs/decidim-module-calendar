@@ -6,7 +6,7 @@ FactoryBot.define do
     start_at { Date.current }
     end_at { Date.current + 1.day }
     url { Faker::Internet.url }
-    organization { build(:organization) }
-    author { build(:user, organization: organization) }
+    organization
+    author { association :user, organization: }
   end
 end

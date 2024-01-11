@@ -1,6 +1,6 @@
 <div id="events" class="card">
-  <div class="card-divider">
-    <h2 class="card-title flex--sbc">
+  <div class="item_show__header">
+    <h2 class="item_show__header-title">
       <div>
         <%= t(".title") %>
       </div>
@@ -9,7 +9,7 @@
         <div id="js-other-actions-wrapper">
           <% if allowed_to? :create, :external_event %>
             <%= link_to t("actions.new_external_event", scope: "decidim.calendar.admin"),
-              new_external_event_path, class: "button tiny button--simple" %>
+              new_external_event_path, class: "button button__sm button__secondary new" %>
           <% end %>
         </div>
       </div>
@@ -45,10 +45,10 @@
                 </td>
                 <td class="table-list__actions">
                   <% if allowed_to? :update, :external_events, external_event: event %>
-                    <%= icon_link_to "pencil", edit_external_event_path(event), t("actions.edit", scope: "decidim.admin"), class: "action-icon--new" %>
+                    <%= icon_link_to "pencil-line", edit_external_event_path(event), t("actions.edit", scope: "decidim.admin"), class: "action-icon--new" %>
                   <% end %>
                   <% if allowed_to? :update, :external_events, external_event: event %>
-                    <%= icon_link_to "circle-x", external_event_path(event), t("actions.destroy", scope: "decidim.admin"), method: :delete, class: "action-icon--remove", data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
+                    <%= icon_link_to "delete-bin-line", external_event_path(event), t("actions.destroy", scope: "decidim.admin"), method: :delete, class: "action-icon--remove", data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
                   <% end %>
                 </td>
               </tr>

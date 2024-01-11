@@ -15,6 +15,11 @@ module Decidim
           @form = external_event_form.instance
         end
 
+        def edit
+          enforce_permission_to :update, :external_event, external_event: current_external_event
+          @form = external_event_form.from_model(current_external_event)
+        end
+
         def create
           enforce_permission_to :create, :external_event
           @form = external_event_form.from_params(params)
@@ -30,11 +35,6 @@ module Decidim
               render action: "new"
             end
           end
-        end
-
-        def edit
-          enforce_permission_to :update, :external_event, external_event: current_external_event
-          @form = external_event_form.from_model(current_external_event)
         end
 
         def update

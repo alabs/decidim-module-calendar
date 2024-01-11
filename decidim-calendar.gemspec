@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.email = ["mijail@riseup.net"]
   s.license = "AGPL-3.0"
   s.homepage = "https://github.com/alabs/decidim-module-calendar"
-  s.required_ruby_version = ">= 2.7"
+  s.required_ruby_version = ">= 3.1"
 
   s.name = "decidim-calendar"
   s.summary = "A decidim module to add a global calendar"

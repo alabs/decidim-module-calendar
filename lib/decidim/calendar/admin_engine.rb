@@ -17,10 +17,14 @@ module Decidim
           menu.add_item :calendar,
                         I18n.t("menu.calendar", scope: "decidim.calendar"),
                         decidim_admin_calendar.external_events_path,
-                        icon_name: "calendar",
+                        icon_name: "calendar-line",
                         position: 5.5,
                         active: :inclusive
         end
+      end
+
+      initializer "decidim_admin.register_icons" do |_app|
+        Decidim.icons.register(name: "caret-bottom", icon: "caret-bottom", category: "system", description: "", engine: :core)
       end
 
       def load_seeds

@@ -1,18 +1,21 @@
 <% add_decidim_page_title(t("calendar.index.title", scope: "decidim")) %>
 
-<%= stylesheet_pack_tag "decidim_calendar" %>
+<%= append_stylesheet_pack_tag "decidim_calendar" %>
 <%= render "calendar_css" %>
 
 <%= participatory_space_wrapper do %>
   <div class="row columns">
-      <%= render partial: "decidim/meetings/calendar_modal", locals: {
-             path:  calendar_ical_path
-           } %>
-    <div class="calendar-filters button-group">
-      <% available_events.each do |_key,item| %>
-        <button class="button tiny cal-filter <%= item[:id] %>" id="<%= item[:id] %>"><%= I18n.t(item[:id], scope: "decidim.calendar.index.filters") %></button>
-      <% end %>
+    <div class="calendar-filters button-group flex">
+      <div class="flex-grow mt-6 md:mt-12 md:self-start">
+        <% available_events.each do |_key,item| %>
+          <button class="button button__sm button__transparent-secondary cal-filter <%= item[:id] %>" id="<%= item[:id] %>"><%= I18n.t(item[:id], scope: "decidim.calendar.index.filters") %></button>
+        <% end %>
+      </div>
+      <div class="flex justify-end">
+        <%= render partial: "decidim/meetings/calendar_modal", locals: { path:  calendar_ical_path } %>
+      </div>
     </div>
+
     <%= content_tag :div, "", id: "calendar", data: {
         locale: I18n.locale,
         events: render_events(@events),
@@ -25,4 +28,4 @@
   </div>
 <% end %>
 
-<%= javascript_pack_tag "decidim_calendar" %>
+<%= append_javascript_pack_tag "decidim_calendar" %>

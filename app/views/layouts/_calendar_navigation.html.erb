@@ -1,14 +1,6 @@
-<%=
-  extended_navigation_bar([
-    {
-      name: t("menu.calendar", scope: "decidim.calendar"),
-      url: calendar_index_path,
-      active: is_active_link?(calendar_index_path, :exclusive)
-    },
-    {
-      name: t("menu.gantt", scope: "decidim.calendar"),
-      url: calendar_gantt_path,
-      active: is_active_link?(calendar_gantt_path, :exclusive)
-    }
-  ])
-%>
+<nav class="flex space-x-4" aria-label="Tabs" style="border-bottom: 1px solid #E5E7EB;">
+  <%= link_to t("menu.calendar", scope: "decidim.calendar"), calendar_index_path,
+              class: "#{is_active_link?(calendar_index_path, :exclusive) ? 'bg-primary text-white' : 'bg-transparent'} py-2 px-4 uppercase" %>
+  <%= link_to t("menu.gantt", scope: "decidim.calendar"), calendar_gantt_path,
+              class: "#{is_active_link?(calendar_gantt_path, :exclusive) ? 'bg-primary text-white' : 'bg-transparent'} py-2 px-4 uppercase" %>
+</nav>

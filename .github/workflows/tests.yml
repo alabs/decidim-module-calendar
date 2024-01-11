@@ -7,8 +7,8 @@ on:
   pull_request:
 
 env:
-  RUBY_VERSION: 3.0.6
-  NODE_VERSION: 16.9.1
+  RUBY_VERSION: 3.1.1
+  NODE_VERSION: 18.17.1
 
 jobs:
   test-report:
@@ -34,6 +34,10 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 1
+
+      - uses: nanasess/setup-chromedriver@v2
+        with:
+          chromedriver-version: 119.0.6045.105
 
       - uses: ruby/setup-ruby@v1
         with:

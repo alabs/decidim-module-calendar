@@ -3,8 +3,8 @@
 require "spec_helper"
 
 describe "manage external events", type: :system do
-  let(:organization) { create :organization }
-  let(:user) { create(:user, :admin, :confirmed, organization: organization) }
+  let(:organization) { create(:organization) }
+  let(:user) { create(:user, :admin, :confirmed, organization:) }
 
   before do
     switch_to_host(organization.host)
@@ -14,21 +14,17 @@ describe "manage external events", type: :system do
 
   describe "creating a event" do
     before do
-      within ".card-divider" do
-        click_link "New"
+      within ".item_show__header" do
+        click_on "New external event"
       end
     end
 
     it "create a new external event" do
-      execute_script("$('#external_event_start_at').focus()")
-      page.find(".datepicker-dropdown .day", text: "12").click
-      page.find(".datepicker-dropdown .hour", text: "10:00").click
-      page.find(".datepicker-dropdown .minute", text: "10:50").click
+      start_time = Time.current
+      end_time = 2.days.from_now
 
-      execute_script("$('#external_event_end_at').focus()")
-      page.find(".datepicker-dropdown .day", text: "12").click
-      page.find(".datepicker-dropdown .hour", text: "12:00").click
-      page.find(".datepicker-dropdown .minute", text: "12:50").click
+      fill_in "external_event[start_at]", with: start_time.strftime("%Y-%m-%dT%H:%M")
+      fill_in "external_event[end_at]", with: end_time.strftime("%Y-%m-%dT%H:%M")
 
       within ".new_event" do
         fill_in_i18n(
@@ -46,23 +42,23 @@ describe "manage external events", type: :system do
 
       expect(page).to have_admin_callout("successfully")
 
-      within ".container" do
-        expect(page).to have_current_path decidim_admin_calendar.external_events_path
-        expect(page).to have_content("Example Event")
+      within ".table-list" do
+        expect(page).to have_css("td", text: "Example Event")
+        expect(page).to have_css("td", text: "https://example.org")
       end
     end
   end
 
   describe "external event actions" do
-    let!(:external_event) { create(:external_event, organization: organization) }
+    let!(:external_event) { create(:external_event, organization:) }
 
     before do
       visit current_path
     end
 
     it "delete a event" do
-      within find("tr", text: translated(external_event.title)) do
-        accept_confirm { click_link "Delete" }
+      within "tr", text: translated(external_event.title) do
+        accept_confirm { click_on "Delete" }
       end
 
       expect(page).to have_admin_callout("successfully")
@@ -73,19 +69,15 @@ describe "manage external events", type: :system do
     end
 
     it "update a event" do
-      within find("tr", text: translated(external_event.title)) do
-        click_link "Edit"
+      within "tr", text: translated(external_event.title) do
+        click_on "Edit"
       end
 
-      execute_script("$('#external_event_start_at').focus()")
-      page.find(".datepicker-dropdown .day", text: "12").click
-      page.find(".datepicker-dropdown .hour", text: "10:00").click
-      page.find(".datepicker-dropdown .minute", text: "10:50").click
+      start_time = Time.current
+      end_time = 2.days.from_now
 
-      execute_script("$('#external_event_end_at').focus()")
-      page.find(".datepicker-dropdown .day", text: "12").click
-      page.find(".datepicker-dropdown .hour", text: "12:00").click
-      page.find(".datepicker-dropdown .minute", text: "12:50").click
+      fill_in "external_event[start_at]", with: start_time.strftime("%Y-%m-%dT%H:%M")
+      fill_in "external_event[end_at]", with: end_time.strftime("%Y-%m-%dT%H:%M")
 
       within ".edit_event" do
         fill_in_i18n(

@@ -7,15 +7,15 @@ module Decidim
     describe Event do
       subject { described_class }
 
-      let(:organization) { create :organization }
-      let!(:event) { create(:external_event, organization: organization) }
-      let!(:participatory_process) { create(:participatory_process, organization: organization) }
+      let(:organization) { create(:organization) }
+      let!(:event) { create(:external_event, organization:) }
+      let!(:participatory_process) { create(:participatory_process, organization:) }
       let!(:component) { create(:meeting_component, participatory_space: participatory_process) }
-      let!(:meeting) { create(:meeting, :published, component: component) }
-      let!(:unpublished_meeting) { create(:meeting, component: component) }
-      let!(:moderated_meeting) { create(:meeting, :published, component: component) }
+      let!(:meeting) { create(:meeting, :published, component:) }
+      let!(:unpublished_meeting) { create(:meeting, component:) }
+      let!(:moderated_meeting) { create(:meeting, :published, component:) }
       let!(:moderation) { create(:moderation, :hidden, reportable: moderated_meeting, participatory_space: participatory_process) }
-      let!(:withdrawn_meeting) { create(:meeting, :published, :withdrawn, component: component) }
+      let!(:withdrawn_meeting) { create(:meeting, :published, :withdrawn, component:) }
       let!(:another_event) { create(:external_event) }
       let!(:another_meeting) { create(:meeting) }
 
@@ -24,7 +24,6 @@ module Decidim
         expect(subject.models).to include(Decidim::ParticipatoryProcessStep)
         expect(subject.models).to include(Decidim::Debates::Debate)
         expect(subject.models).to include(Decidim::Calendar::ExternalEvent)
-        expect(subject.models).to include(Decidim::Consultation)
       end
 
       it "returns events" do
