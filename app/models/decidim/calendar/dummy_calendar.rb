@@ -9,6 +9,10 @@ module Decidim
         def where(*_args)
           Decidim::Assembly.none
         end
+
+        def moderators(*_args)
+          Decidim::Assembly.none
+        end
       end
     end
   end
